@@ -1,0 +1,87 @@
+{
+  "header": "🚀 Professional Journey",
+  "metaTitle": "🚀 Professional Journey | Nati Cabti",
+  "downloadSloganCV": "Download My CV",
+  "educations": {
+    "enabled": true,
+    "icon": "IoSchoolOutline",
+    "title": "Education",
+    "items": [
+      {
+        "company": " Ben-Gurion University of the Negev",
+        "location": "",
+        "role": "MBA , GGFBM Executives MBA",
+        "duration": "Oct. 2006 —  Aug. 2010",
+        "tasksMarkdown": "The MBA Program for Executives aims to expose students to the wide spectrum of fields, provide them with management tools and develop knowledge, leadership & skills in the diverse fields of management. "
+      },
+      {
+        "company": "SCE - Shamoon College of Engineering",
+        "location": "Oct. 2017 —  Aug. 2019",
+        "role": "B.Sc , IE & Information Systems",
+        "duration": "",
+        "tasksMarkdown": "◻️ Specializing in information systems engineering.\n◻️ Honored Student."
+      }
+    ]
+  },
+  "awardLeaderships": {
+    "enabled": true,
+    "icon": "PiTrophy",
+    "title": "Award & Leaderships",
+    "items": []
+  },
+  "teachingExperiences": {
+    "enabled": true,
+    "icon": "PiBooks",
+    "title": "Teaching",
+    "items": []
+  },
+  "professionalExperiences": {
+    "enabled": true,
+    "icon": "MdOutlineDevices",
+    "title": "Professional Experience",
+    "items": [
+      {
+        "company": "Logisoft",
+        "location": "",
+        "role": "Chief Technology Officer",
+        "duration": "August 2021 - Present",
+        "tasksMarkdown": "I architect enterprise SaaS platforms that scale like well-designed algorithms—efficiently and predictably under increasing load. My technical vision transforms containerized microservices and API-first design patterns into business acceleration tools. I've pioneered hybrid database strategies that balance transactional consistency with horizontal scaling capabilities.\n\nI orchestrate distributed development teams across frontend, backend, mobile, and cloud infrastructure domains. Each team functions as an independent microservice with clear interfaces and responsibilities. My leadership spans multiple offshore units, implementing CI/CD pipelines that compress deployment cycles from weeks to hours.\n\nI translate complex technical concepts into tangible business outcomes through strategic roadmapping. By applying queue theory principles to development workflows, I've optimized resource allocation while maintaining high-quality standards. My expertise in progressive web applications and distributed caching has delivered 99.9% uptime for mission-critical systems."
+      },
+      {
+        "company": "Win Assist NGO 🙌",
+        "location": "",
+        "role": "Chief Information Officer & Strategic Advisor (Volunteer)",
+        "duration": "January 2024 - Present",
+        "tasksMarkdown": "I lead digital transformation initiatives for this non-profit supporting IDF wounded soldiers and bereaved families. I architect web platforms and information systems that function as digital nervous systems—responsive and adaptive to organizational needs. My strategic guidance has expanded the organization's digital footprint and technical capabilities.\n\nI apply enterprise-grade methodologies to non-profit challenges, creating sustainable technical solutions with limited resources. As a leadership team member, I bridge technology, sports, and mental rehabilitation domains to strengthen community resilience. My contributions to the \"Basketball for Life\" program demonstrate how technical frameworks can support human-centered recovery processes."
+      },
+      {
+        "company": "SELDAT Distribution Inc.",
+        "location": "",
+        "role": "Head of Global Delivery",
+        "duration": "October 2018 - August 2021",
+        "tasksMarkdown": "I synchronized distributed teams across three countries and time zones like a well-tuned distributed database system—consistent, reliable, and always available. My leadership encompassed Implementation, Product Analysis, Development, and Pre-sales functions reporting directly to the SVP of Technology. I established verification protocols that reduced integration errors by 40%.\n\nI directed product development for a comprehensive cloud-based ERP & Logistics suite. The platform's modular architecture—featuring components for MRP, Procurement, Import, and Logistics—mirrored the supply chain systems it managed. My technical decisions improved warehouse throughput for clients by an average of 35% while reducing operational complexity."
+      },
+      {
+        "company": "eWave Mobile",
+        "location": "",
+        "role": "Implementation Team Manager",
+        "duration": "June 2015 - July 2018",
+        "tasksMarkdown": "I led operational teams delivering concurrent Blue Yonder (JDA-RedPrairie) projects like parallel processing units—simultaneously handling different execution phases. My management approach treated each project stage as a state machine with defined transitions and validation checkpoints. I maintained system integrity through rigorous testing protocols and escalation pathways.\n\nI orchestrated multiphase implementations spanning Design, Customization, Testing, Go-Live, and Support. By implementing critical path algorithms to resource planning, I optimized team capacity while maintaining exceptional service levels. My customer satisfaction metrics consistently exceeded 95% through proactive issue resolution and transparent communication."
+      },
+      {
+        "company": "UPS",
+        "location": "",
+        "role": "Technologies Projects Manager",
+        "duration": "January 2012 - April 2016",
+        "tasksMarkdown": "I engineered the transition from legacy systems to innovative solutions across UPS's technology landscape. Leading cross-functional software projects (ONE-ERP, Mantis Lvision WMS, Sky-Giraffe), I applied systems integration principles to connect previously siloed operations. My implementations reduced data latency by 60% and improved logistics visibility.\n\nI functioned as the bridge between senior executives and technical teams, translating business requirements into effective technology solutions. By implementing event-driven architecture concepts to workflow design, I eliminated process bottlenecks and accelerated decision cycles. My solutions delivered measurable improvements to UPS's supply chain operations."
+      },
+      {
+        "company": "TEVA Pharmaceuticals",
+        "location": "",
+        "role": "Business Applications Analyst",
+        "duration": "January 2012 - April 2016",
+        "tasksMarkdown": "I analyzed pharmaceutical logistics workflows with the precision of a well-designed algorithm—decomposing complex processes into implementable components. As part of the pioneering team establishing Teva's central logistics center, I ensured FDA compliance while optimizing warehouse automation systems. My specifications became the executable code for critical logistics operations.\n\nI led cross-functional workshops that bridged logistics, manufacturing, and Pharmaceutical-QA departments. By treating organizational boundaries as interfaces requiring clear contracts, I improved interdepartmental workflow efficiency. My functional specifications and QA scripts established operational standards that scaled across multiple facilities."
+      }
+    ]
+  }
+}

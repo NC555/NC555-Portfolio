@@ -1,0 +1,750 @@
+[
+  {
+    "iconName": "Android",
+    "iconCode": "DiAndroid"
+  },
+  {
+    "iconName": "Angular",
+    "iconCode": "DiAngularSimple"
+  },
+  {
+    "iconName": "Apple",
+    "iconCode": "DiApple"
+  },
+  {
+    "iconName": "Appstore",
+    "iconCode": "DiAppstore"
+  },
+  {
+    "iconName": "Aptana",
+    "iconCode": "DiAptana"
+  },
+  {
+    "iconName": "Asterisk",
+    "iconCode": "DiAsterisk"
+  },
+  {
+    "iconName": "Atlassian",
+    "iconCode": "DiAtlassian"
+  },
+  {
+    "iconName": "Atom",
+    "iconCode": "DiAtom"
+  },
+  {
+    "iconName": "Aws",
+    "iconCode": "DiAws"
+  },
+  {
+    "iconName": "Backbone",
+    "iconCode": "DiBackbone"
+  },
+  {
+    "iconName": "BingSmall",
+    "iconCode": "DiBingSmall"
+  },
+  {
+    "iconName": "Bintray",
+    "iconCode": "DiBintray"
+  },
+  {
+    "iconName": "Bitbucket",
+    "iconCode": "DiBitbucket"
+  },
+  {
+    "iconName": "Blackberry",
+    "iconCode": "DiBlackberry"
+  },
+  {
+    "iconName": "Bootstrap",
+    "iconCode": "DiBootstrap"
+  },
+  {
+    "iconName": "Bower",
+    "iconCode": "DiBower"
+  },
+  {
+    "iconName": "Brackets",
+    "iconCode": "DiBrackets"
+  },
+  {
+    "iconName": "Bugsense",
+    "iconCode": "DiBugsense"
+  },
+  {
+    "iconName": "Celluloid",
+    "iconCode": "DiCelluloid"
+  },
+  {
+    "iconName": "Chrome",
+    "iconCode": "DiChrome"
+  },
+  {
+    "iconName": "Cisco",
+    "iconCode": "DiCisco"
+  },
+  {
+    "iconName": "Clojure",
+    "iconCode": "DiClojure"
+  },
+  {
+    "iconName": "ClojureAlt",
+    "iconCode": "DiClojureAlt"
+  },
+  {
+    "iconName": "Cloud9",
+    "iconCode": "DiCloud9"
+  },
+  {
+    "iconName": "Coda",
+    "iconCode": "DiCoda"
+  },
+  {
+    "iconName": "Code",
+    "iconCode": "DiCode"
+  },
+  {
+    "iconName": "CodeBadge",
+    "iconCode": "DiCodeBadge"
+  },
+  {
+    "iconName": "Codeigniter",
+    "iconCode": "DiCodeigniter"
+  },
+  {
+    "iconName": "Codepen",
+    "iconCode": "DiCodepen"
+  },
+  {
+    "iconName": "Codrops",
+    "iconCode": "DiCodrops"
+  },
+  {
+    "iconName": "Coffeescript",
+    "iconCode": "DiCoffeescript"
+  },
+  {
+    "iconName": "Compass",
+    "iconCode": "DiCompass"
+  },
+  {
+    "iconName": "Composer",
+    "iconCode": "DiComposer"
+  },
+  {
+    "iconName": "Creativecommons",
+    "iconCode": "DiCreativecommons"
+  },
+  {
+    "iconName": "CreativecommonsBadge",
+    "iconCode": "DiCreativecommonsBadge"
+  },
+  {
+    "iconName": "Css3",
+    "iconCode": "DiCss3"
+  },
+  {
+    "iconName": "Css3Full",
+    "iconCode": "DiCss3Full"
+  },
+  {
+    "iconName": "CssTricks",
+    "iconCode": "DiCssTricks"
+  },
+  {
+    "iconName": "Cssdeck",
+    "iconCode": "DiCssdeck"
+  },
+  {
+    "iconName": "Dart",
+    "iconCode": "DiDart"
+  },
+  {
+    "iconName": "Database",
+    "iconCode": "DiDatabase"
+  },
+  {
+    "iconName": "Debian",
+    "iconCode": "DiDebian"
+  },
+  {
+    "iconName": "DigitalOcean",
+    "iconCode": "DiDigitalOcean"
+  },
+  {
+    "iconName": "Django",
+    "iconCode": "DiDjango"
+  },
+  {
+    "iconName": "Dlang",
+    "iconCode": "DiDlang"
+  },
+  {
+    "iconName": "Docker",
+    "iconCode": "DiDocker"
+  },
+  {
+    "iconName": "Doctrine",
+    "iconCode": "DiDoctrine"
+  },
+  {
+    "iconName": "Dojo",
+    "iconCode": "DiDojo"
+  },
+  {
+    "iconName": "Dotnet",
+    "iconCode": "DiDotnet"
+  },
+  {
+    "iconName": "Dreamweaver",
+    "iconCode": "DiDreamweaver"
+  },
+  {
+    "iconName": "Dropbox",
+    "iconCode": "DiDropbox"
+  },
+  {
+    "iconName": "Drupal",
+    "iconCode": "DiDrupal"
+  },
+  {
+    "iconName": "Eclipse",
+    "iconCode": "DiEclipse"
+  },
+  {
+    "iconName": "Ember",
+    "iconCode": "DiEmber"
+  },
+  {
+    "iconName": "Envato",
+    "iconCode": "DiEnvato"
+  },
+  {
+    "iconName": "Erlang",
+    "iconCode": "DiErlang"
+  },
+  {
+    "iconName": "Eslint",
+    "iconCode": "DiEslint"
+  },
+  {
+    "iconName": "Firebase",
+    "iconCode": "DiFirebase"
+  },
+  {
+    "iconName": "Firefox",
+    "iconCode": "DiFirefox"
+  },
+  {
+    "iconName": "GitBranch",
+    "iconCode": "DiGitBranch"
+  },
+  {
+    "iconName": "GitCommit",
+    "iconCode": "DiGitCommit"
+  },
+  {
+    "iconName": "GitCompare",
+    "iconCode": "DiGitCompare"
+  },
+  {
+    "iconName": "GitMerge",
+    "iconCode": "DiGitMerge"
+  },
+  {
+    "iconName": "GitPullRequest",
+    "iconCode": "DiGitPullRequest"
+  },
+  {
+    "iconName": "Github",
+    "iconCode": "DiGithub"
+  },
+  {
+    "iconName": "GithubAlt",
+    "iconCode": "DiGithubAlt"
+  },
+  {
+    "iconName": "GithubBadge",
+    "iconCode": "DiGithubBadge"
+  },
+  {
+    "iconName": "GithubFull",
+    "iconCode": "DiGithubFull"
+  },
+  {
+    "iconName": "Gnu",
+    "iconCode": "DiGnu"
+  },
+  {
+    "iconName": "Go",
+    "iconCode": "DiGo"
+  },
+  {
+    "iconName": "GoogleAnalytics",
+    "iconCode": "DiGoogleAnalytics"
+  },
+  {
+    "iconName": "GoogleCloudPlatform",
+    "iconCode": "DiGoogleCloudPlatform"
+  },
+  {
+    "iconName": "GoogleDrive",
+    "iconCode": "DiGoogleDrive"
+  },
+  {
+    "iconName": "Grails",
+    "iconCode": "DiGrails"
+  },
+  {
+    "iconName": "Groovy",
+    "iconCode": "DiGroovy"
+  },
+  {
+    "iconName": "Grunt",
+    "iconCode": "DiGrunt"
+  },
+  {
+    "iconName": "Gulp",
+    "iconCode": "DiGulp"
+  },
+  {
+    "iconName": "Hackernews",
+    "iconCode": "DiHackernews"
+  },
+  {
+    "iconName": "Haskell",
+    "iconCode": "DiHaskell"
+  },
+  {
+    "iconName": "Heroku",
+    "iconCode": "DiHeroku"
+  },
+  {
+    "iconName": "Html5",
+    "iconCode": "DiHtml5"
+  },
+  {
+    "iconName": "Html53dEffects",
+    "iconCode": "DiHtml53dEffects"
+  },
+  {
+    "iconName": "Html5Connectivity",
+    "iconCode": "DiHtml5Connectivity"
+  },
+  {
+    "iconName": "Html5DeviceAccess",
+    "iconCode": "DiHtml5DeviceAccess"
+  },
+  {
+    "iconName": "Html5Multimedia",
+    "iconCode": "DiHtml5Multimedia"
+  },
+  {
+    "iconName": "Ie",
+    "iconCode": "DiIe"
+  },
+  {
+    "iconName": "Illustrator",
+    "iconCode": "DiIllustrator"
+  },
+  {
+    "iconName": "IntellijIdea",
+    "iconCode": "DiIntellijIdea"
+  },
+  {
+    "iconName": "Ionic",
+    "iconCode": "DiIonic"
+  },
+  {
+    "iconName": "Java",
+    "iconCode": "DiJava"
+  },
+  {
+    "iconName": "Javascript",
+    "iconCode": "DiJavascript"
+  },
+  {
+    "iconName": "Javascript1",
+    "iconCode": "DiJavascript1"
+  },
+  {
+    "iconName": "JekyllSmall",
+    "iconCode": "DiJekyllSmall"
+  },
+  {
+    "iconName": "Jenkins",
+    "iconCode": "DiJenkins"
+  },
+  {
+    "iconName": "Jira",
+    "iconCode": "DiJira"
+  },
+  {
+    "iconName": "Joomla",
+    "iconCode": "DiJoomla"
+  },
+  {
+    "iconName": "JqueryLogo",
+    "iconCode": "DiJqueryLogo"
+  },
+  {
+    "iconName": "JqueryUiLogo",
+    "iconCode": "DiJqueryUiLogo"
+  },
+  {
+    "iconName": "JsBadge",
+    "iconCode": "DiJsBadge"
+  },
+  {
+    "iconName": "Komodo",
+    "iconCode": "DiKomodo"
+  },
+  {
+    "iconName": "Kraken",
+    "iconCode": "DiKraken"
+  },
+  {
+    "iconName": "KrakenBadge",
+    "iconCode": "DiKrakenBadge"
+  },
+  {
+    "iconName": "Laravel",
+    "iconCode": "DiLaravel"
+  },
+  {
+    "iconName": "Less",
+    "iconCode": "DiLess"
+  },
+  {
+    "iconName": "Linux",
+    "iconCode": "DiLinux"
+  },
+  {
+    "iconName": "Magento",
+    "iconCode": "DiMagento"
+  },
+  {
+    "iconName": "Mailchimp",
+    "iconCode": "DiMailchimp"
+  },
+  {
+    "iconName": "Markdown",
+    "iconCode": "DiMarkdown"
+  },
+  {
+    "iconName": "Materializecss",
+    "iconCode": "DiMaterializecss"
+  },
+  {
+    "iconName": "Meteor",
+    "iconCode": "DiMeteor"
+  },
+  {
+    "iconName": "MeteorFull",
+    "iconCode": "DiMeteorFull"
+  },
+  {
+    "iconName": "Mitlicence",
+    "iconCode": "DiMitlicence"
+  },
+  {
+    "iconName": "Modernizr",
+    "iconCode": "DiModernizr"
+  },
+  {
+    "iconName": "Mongodb",
+    "iconCode": "DiMongodb"
+  },
+  {
+    "iconName": "MootoolsBadge",
+    "iconCode": "DiMootoolsBadge"
+  },
+  {
+    "iconName": "MootoolsBadge2",
+    "iconCode": "DiMootoolsBadge2"
+  },
+  {
+    "iconName": "Mozilla",
+    "iconCode": "DiMozilla"
+  },
+  {
+    "iconName": "MsqlServer",
+    "iconCode": "DiMsqlServer"
+  },
+  {
+    "iconName": "Mysql",
+    "iconCode": "DiMysql"
+  },
+  {
+    "iconName": "Nancy",
+    "iconCode": "DiNancy"
+  },
+  {
+    "iconName": "Netbeans",
+    "iconCode": "DiNetbeans"
+  },
+  {
+    "iconName": "Netmagazine",
+    "iconCode": "DiNetmagazine"
+  },
+  {
+    "iconName": "Nginx",
+    "iconCode": "DiNginx"
+  },
+  {
+    "iconName": "Nodejs",
+    "iconCode": "DiNodejs"
+  },
+  {
+    "iconName": "NodejsSmall",
+    "iconCode": "DiNodejsSmall"
+  },
+  {
+    "iconName": "Npm",
+    "iconCode": "DiNpm"
+  },
+  {
+    "iconName": "Onedrive",
+    "iconCode": "DiOnedrive"
+  },
+  {
+    "iconName": "Openshift",
+    "iconCode": "DiOpenshift"
+  },
+  {
+    "iconName": "Opensource",
+    "iconCode": "DiOpensource"
+  },
+  {
+    "iconName": "Opera",
+    "iconCode": "DiOpera"
+  },
+  {
+    "iconName": "Perl",
+    "iconCode": "DiPerl"
+  },
+  {
+    "iconName": "Phonegap",
+    "iconCode": "DiPhonegap"
+  },
+  {
+    "iconName": "Photoshop",
+    "iconCode": "DiPhotoshop"
+  },
+  {
+    "iconName": "Php",
+    "iconCode": "DiPhp"
+  },
+  {
+    "iconName": "Postgresql",
+    "iconCode": "DiPostgresql"
+  },
+  {
+    "iconName": "Prolog",
+    "iconCode": "DiProlog"
+  },
+  {
+    "iconName": "Python",
+    "iconCode": "DiPython"
+  },
+  {
+    "iconName": "Rackspace",
+    "iconCode": "DiRackspace"
+  },
+  {
+    "iconName": "Raphael",
+    "iconCode": "DiRaphael"
+  },
+  {
+    "iconName": "RaspberryPi",
+    "iconCode": "DiRaspberryPi"
+  },
+  {
+    "iconName": "React",
+    "iconCode": "DiReact"
+  },
+  {
+    "iconName": "Redhat",
+    "iconCode": "DiRedhat"
+  },
+  {
+    "iconName": "Redis",
+    "iconCode": "DiRedis"
+  },
+  {
+    "iconName": "Requirejs",
+    "iconCode": "DiRequirejs"
+  },
+  {
+    "iconName": "Responsive",
+    "iconCode": "DiResponsive"
+  },
+  {
+    "iconName": "Ror",
+    "iconCode": "DiRor"
+  },
+  {
+    "iconName": "Ruby",
+    "iconCode": "DiRuby"
+  },
+  {
+    "iconName": "RubyRough",
+    "iconCode": "DiRubyRough"
+  },
+  {
+    "iconName": "Rust",
+    "iconCode": "DiRust"
+  },
+  {
+    "iconName": "Safari",
+    "iconCode": "DiSafari"
+  },
+  {
+    "iconName": "Sass",
+    "iconCode": "DiSass"
+  },
+  {
+    "iconName": "Scala",
+    "iconCode": "DiScala"
+  },
+  {
+    "iconName": "Scripted",
+    "iconCode": "DiScripted"
+  },
+  {
+    "iconName": "Scrum",
+    "iconCode": "DiScrum"
+  },
+  {
+    "iconName": "Senchatouch",
+    "iconCode": "DiSenchatouch"
+  },
+  {
+    "iconName": "Sizzlejs",
+    "iconCode": "DiSizzlejs"
+  },
+  {
+    "iconName": "SmashingMagazine",
+    "iconCode": "DiSmashingMagazine"
+  },
+  {
+    "iconName": "SnapSvg",
+    "iconCode": "DiSnapSvg"
+  },
+  {
+    "iconName": "Spark",
+    "iconCode": "DiSpark"
+  },
+  {
+    "iconName": "Sqlite",
+    "iconCode": "DiSqlite"
+  },
+  {
+    "iconName": "Stackoverflow",
+    "iconCode": "DiStackoverflow"
+  },
+  {
+    "iconName": "Streamline",
+    "iconCode": "DiStreamline"
+  },
+  {
+    "iconName": "Stylus",
+    "iconCode": "DiStylus"
+  },
+  {
+    "iconName": "Sublime",
+    "iconCode": "DiSublime"
+  },
+  {
+    "iconName": "Swift",
+    "iconCode": "DiSwift"
+  },
+  {
+    "iconName": "Symfony",
+    "iconCode": "DiSymfony"
+  },
+  {
+    "iconName": "SymfonyBadge",
+    "iconCode": "DiSymfonyBadge"
+  },
+  {
+    "iconName": "Techcrunch",
+    "iconCode": "DiTechcrunch"
+  },
+  {
+    "iconName": "Terminal",
+    "iconCode": "DiTerminal"
+  },
+  {
+    "iconName": "TerminalBadge",
+    "iconCode": "DiTerminalBadge"
+  },
+  {
+    "iconName": "Travis",
+    "iconCode": "DiTravis"
+  },
+  {
+    "iconName": "Trello",
+    "iconCode": "DiTrello"
+  },
+  {
+    "iconName": "Typo3",
+    "iconCode": "DiTypo3"
+  },
+  {
+    "iconName": "Ubuntu",
+    "iconCode": "DiUbuntu"
+  },
+  {
+    "iconName": "Uikit",
+    "iconCode": "DiUikit"
+  },
+  {
+    "iconName": "UnitySmall",
+    "iconCode": "DiUnitySmall"
+  },
+  {
+    "iconName": "Vim",
+    "iconCode": "DiVim"
+  },
+  {
+    "iconName": "Visualstudio",
+    "iconCode": "DiVisualstudio"
+  },
+  {
+    "iconName": "W3C",
+    "iconCode": "DiW3C"
+  },
+  {
+    "iconName": "Webplatform",
+    "iconCode": "DiWebplatform"
+  },
+  {
+    "iconName": "Windows",
+    "iconCode": "DiWindows"
+  },
+  {
+    "iconName": "Wordpress",
+    "iconCode": "DiWordpress"
+  },
+  {
+    "iconName": "Yahoo",
+    "iconCode": "DiYahoo"
+  },
+  {
+    "iconName": "YahooSmall",
+    "iconCode": "DiYahooSmall"
+  },
+  {
+    "iconName": "Yeoman",
+    "iconCode": "DiYeoman"
+  },
+  {
+    "iconName": "Yii",
+    "iconCode": "DiYii"
+  },
+  {
+    "iconName": "Zend",
+    "iconCode": "DiZend"
+  }
+]

@@ -1,0 +1,192 @@
+{
+  "siteURL": "https://www.digital-hero.com",
+  "favicons": {
+    "main": "/favicon-96x96.png",
+    "admin": "/favicon-32x32.png"
+  },
+  "logo": {
+    "admin": "/logo256.png"
+  },
+  "navigationLinks": [
+    { "path": "/", "label": "About" },
+    { "path": "/resume", "label": "Resume" },
+    { "path": "/portfolio", "label": "Portfolio" },
+    { "path": "/blog", "label": "Blog" },
+    { "path": "/gallery", "label": "Gallery" }
+  ],
+  "avatar": "/images/profile.png",
+  "title": "Nati Cabti | Open Source Technologist",
+  "description": "I'm Chun-Ho Nati 💻.",
+  "author": "Nati Cabti - Digitial Hero",
+  "keywords": ["Nati Cabti", "Portfolio", "Vibe Coding", "Next.js", "Tina CMS"],
+  "status": "Building until Scale is an Issue 🚀",
+  "openGraph": {
+    "url": "https://www.digital-hero.com/",
+    "type": "website",
+    "siteName": "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+    "title": "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+    "description": "",
+    "images": [
+      {
+        "url": "",
+        "width": 1200,
+        "height": 630,
+        "alt": "Nati Cabti - Digitial Hero Cover Image"
+      }
+    ]
+  },
+  "contacts": [
+    {
+      "icon": "LuMapPin",
+      "title": "Location",
+      "content": "Taipei, Taiwan 🇹🇼",
+      "contactType": "Location"
+    },
+    {
+      "icon": "LuMail",
+      "title": "Email",
+      "link": "mailto:naticabti@gmail.com",
+      "content": "naticabti@gmail.com",
+      "contactType": "Email"
+    },
+    {
+      "icon": "LuGithub",
+      "title": "GitHub",
+      "link": "https://github.com/NC555",
+      "content": "@NC555",
+      "contactType": "GitHub"
+    },
+    {
+      "icon": "LuLinkedin",
+      "title": "LinkedIn",
+      "link": "https://www.linkedin.com/in/NC555/",
+      "content": "Chun-Ho (Hugo) Lin",
+      "contactType": "LinkedIn"
+    }
+  ],
+  "socialLinks": [
+    {
+      "url": "https://github.com/NC555",
+      "icon": "LuGithub",
+      "name": "GitHub"
+    },
+    {
+      "url": "https://www.linkedin.com/in/NC555/",
+      "icon": "LuLinkedin",
+      "name": "LinkedIn"
+    },
+    {
+      "url": "https://medium.com/@NC555",
+      "icon": "PiMediumLogoBold",
+      "name": "Medium"
+    },
+    {
+      "url": "https://twitter.com/NC555___",
+      "icon": "FaXTwitter",
+      "name": "Twitter"
+    },
+    {
+      "url": "/rss.xml",
+      "icon": "LuRss",
+      "name": "RSS Feed"
+    },
+    {
+      "url": "/cv",
+      "icon": "MdAttachment",
+      "name": "CV"
+    }
+  ],
+  "googleProvider": {
+    "googleAnalyticId": "",
+    "googleTagManagerId": ""
+  },
+  "jsonLdPerson": {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "@id": "https://www.digital-hero.com/#person",
+    "givenName": "Chun-Ho",
+    "familyName": "Lin",
+    "additionalName": "Hugo",
+    "gender": "male",
+    "birthPlace": "New Taipei, TW",
+    "nationality": "Taiwan",
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "National Central University",
+        "sameAs": "https://www.ncu.edu.tw/"
+      }
+    ],
+    "jobTitle": "Software Engineer",
+    "skills": "Software Engineering, Web Development, Open Source",
+    "image": "https://www.digital-hero.com/images/profile.webp",
+    "url": "https://www.digital-hero.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/NC555/",
+      "http://github.com/NC555",
+      "https://medium.com/@NC555"
+    ]
+  },
+  "homeMetaData": {
+    "metadataBase": "https://www.digital-hero.com",
+    "title": "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+    "description": "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+    "authors": [{ "name": "Chun-Ho (Hugo) Lin" }],
+    "creator": "Chun-Ho (Hugo) Lin",
+    "keywords": [
+      "Chun-Ho (Hugo) Lin",
+      "NC555",
+      "Software Engineering",
+      "Next.js",
+      "React"
+    ],
+    "openGraph": {
+      "url": "https://www.digital-hero.com/",
+      "type": "website",
+      "siteName": "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+      "title": "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+      "description": "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      "images": [
+        {
+          "url": "https://docs.digital-hero.com/images/cover-with-NC555-com.png",
+          "width": 1200,
+          "height": 630,
+          "alt": "Nati Cabti - Digitial Hero Cover Image"
+        }
+      ]
+    },
+    "manifest": "/manifest.json",
+    "twitter": {
+      "card": "summary_large_image",
+      "title": "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+      "description": "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      "images": "https://docs.digital-hero.com/images/cover-with-NC555-com.png"
+    },
+    "icons": {
+      "icon": "/favicon-96x96.png",
+      "shortcut": "/favicon-96x96.png",
+      "apple": [
+        {
+          "url": "/logo256.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  },
+  "giscusConfig": {
+    "id": "comments",
+    "repo": "NC555/digital-hero.com",
+    "repoId": "",
+    "category": "General",
+    "categoryId": "",
+    "mapping": "pathname",
+    "term": "Welcome to @giscus/react component!",
+    "reactionsEnabled": "1",
+    "emitMetadata": "1",
+    "inputPosition": "bottom",
+    "theme": "dark_tritanopia",
+    "lang": "en",
+    "loading": "lazy"
+  }
+}

@@ -1,0 +1,74 @@
+fragment PostParts on Post {
+  __typename
+  title
+  excerpt
+  coverImage
+  date
+  author {
+    __typename
+    name
+    picture
+  }
+  ogImage {
+    __typename
+    url
+  }
+  publishedAt
+  category
+  tags
+  summary
+  banner
+  alt
+  mathjax
+  body
+}
+
+fragment ContentPostParts on ContentPost {
+  __typename
+  title
+  excerpt
+  coverImage
+  date
+  author {
+    __typename
+    name
+    picture
+  }
+  ogImage {
+    __typename
+    url
+  }
+  publishedAt
+  category
+  tags
+  summary
+  banner
+  alt
+  mathjax
+  body
+}
+
+fragment SidebarConfigParts on SidebarConfig {
+  __typename
+  profile {
+    __typename
+    firstName
+    lastName
+    preferredName
+    status
+    avatar
+  }
+  contacts {
+    __typename
+    title
+    content
+    link
+    icon
+  }
+  socialLinks {
+    __typename
+    name
+    url
+    icon
+  }
+}

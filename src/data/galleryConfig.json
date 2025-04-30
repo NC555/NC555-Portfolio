@@ -1,0 +1,147 @@
+{
+  "header": "Gallery",
+  "metaTitle": "City Tour Gallery Collection",
+  "metaDescription": "City Tour Gallery Collection",
+  "photos": [
+    {
+      "id": "202504300001",
+      "filename": "Amsterdam-1.jpg",
+      "tags": ["Amsterdam"],
+      "description": "A view of Amsterdam, photo 1",
+      "category": "Amsterdam"
+    },
+    {
+      "id": "202504300002",
+      "filename": "Amsterdam-2.jpg",
+      "tags": ["Amsterdam"],
+      "description": "A view of Amsterdam, photo 2",
+      "category": "Amsterdam"
+    },
+    {
+      "id": "202504300003",
+      "filename": "Amsterdam-3.jpg",
+      "tags": ["Amsterdam"],
+      "description": "A view of Amsterdam, photo 3",
+      "category": "Amsterdam"
+    },
+    {
+      "id": "202504300004",
+      "filename": "athens-1.jpg",
+      "tags": ["Athens"],
+      "description": "A view of Athens, photo 1",
+      "category": "Athens"
+    },
+    {
+      "id": "202504300005",
+      "filename": "athens-2.jpg",
+      "tags": ["Athens"],
+      "description": "A view of Athens, photo 2",
+      "category": "Athens"
+    },
+    {
+      "id": "202504300006",
+      "filename": "florence-1.jpg",
+      "tags": ["Florence"],
+      "description": "A view of Florence, photo 1",
+      "category": "Florence"
+    },
+    {
+      "id": "202504300007",
+      "filename": "new-york-1.jpg",
+      "tags": ["New York"],
+      "description": "A view of New York, photo 1",
+      "category": "New York"
+    },
+    {
+      "id": "202504300008",
+      "filename": "new-york-2.jpg",
+      "tags": ["New York"],
+      "description": "A view of New York, photo 2",
+      "category": "New York"
+    },
+    {
+      "id": "202504300009",
+      "filename": "new-york-3.jpg",
+      "tags": ["New York"],
+      "description": "A view of New York, photo 3",
+      "category": "New York"
+    },
+    {
+      "id": "202504300010",
+      "filename": "paris-1.jpg",
+      "tags": ["Paris"],
+      "description": "A view of Paris, photo 1",
+      "category": "Paris"
+    },
+    {
+      "id": "202504300011",
+      "filename": "paris-2.jpg",
+      "tags": ["Paris"],
+      "description": "A view of Paris, photo 2",
+      "category": "Paris"
+    },
+    {
+      "id": "202504300012",
+      "filename": "paris-3.jpg",
+      "tags": ["Paris"],
+      "description": "A view of Paris, photo 3",
+      "category": "Paris"
+    },
+    {
+      "id": "202504300013",
+      "filename": "paris-4.jpg",
+      "tags": ["Paris"],
+      "description": "A view of Paris, photo 4",
+      "category": "Paris"
+    },
+    {
+      "id": "202504300014",
+      "filename": "paris-5.jpg",
+      "tags": ["Paris"],
+      "description": "A view of Paris, photo 5",
+      "category": "Paris"
+    },
+    {
+      "id": "202504300015",
+      "filename": "rio-1.jpg",
+      "tags": ["Rio"],
+      "description": "A view of Rio, photo 1",
+      "category": "Rio"
+    },
+    {
+      "id": "202504300016",
+      "filename": "rio-2.jpg",
+      "tags": ["Rio"],
+      "description": "A view of Rio, photo 2",
+      "category": "Rio"
+    },
+    {
+      "id": "202504300017",
+      "filename": "rio-3.jpg",
+      "tags": ["Rio"],
+      "description": "A view of Rio, photo 3",
+      "category": "Rio"
+    },
+    {
+      "id": "202504300018",
+      "filename": "rome-1.jpg",
+      "tags": ["Rome"],
+      "description": "A view of Rome, photo 1",
+      "category": "Rome"
+    },
+    {
+      "id": "202504300019",
+      "filename": "rome-2.jpg",
+      "tags": ["Rome"],
+      "description": "A view of Rome, photo 2",
+      "category": "Rome"
+    },
+    {
+      "id": "202504300020",
+      "filename": "rome-3.jpg",
+      "tags": ["Rome"],
+      "description": "A view of Rome, photo 3",
+      "category": "Rome"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+.markdown {
+  @apply text-lg leading-relaxed;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-6;
+}
+
+.markdown p {
+  @apply mb-4;
+  @apply text-base;
+  @apply text-light-gray
+}
+
+.markdown mark {
+  @apply text-orange-yellow-crayola bg-transparent;
+}
+
+.markdown a {
+  @apply inline text-orange-yellow-crayola underline hover:text-opacity-70;
+}
+
+.markdown h2 {
+  @apply text-3xl mt-12 mb-4 leading-snug;
+}
+
+.markdown h3 {
+  @apply text-2xl mt-8 mb-4 leading-snug;
+}

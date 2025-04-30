@@ -1,0 +1,92 @@
+{
+  "profile": {
+    "firstName": "Nati",
+    "lastName": "Cabti",
+    "preferredName": " ",
+    "status": "Deploy Container As Long As You Can 🚀",
+    "avatar": "/uploads/3dc3d536-f55b-4416-bfc7-a23713f1df87.png"
+  },
+  "contacts": [
+    {
+      "title": "Location",
+      "content": "Israel",
+      "icon": "LuMapPin",
+      "contactType": "Location"
+    },
+    {
+      "title": "Email",
+      "content": "naticabti@gmail.com",
+      "link": "mailto:naticabti@gmail.com",
+      "icon": "LuMail",
+      "contactType": "Email"
+    },
+    {
+      "title": "GitHub",
+      "content": "@NC555",
+      "link": "https://github.com/NC555",
+      "icon": "LuGithub",
+      "contactType": "GitHub"
+    },
+    {
+      "title": "LinkedIn",
+      "content": "Nati Cabti",
+      "link": "https://linkedin.com/in/nati-cabti",
+      "icon": "LuLinkedin",
+      "contactType": "LinkedIn"
+    }
+  ],
+  "socialLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/NC555",
+      "icon": "LuGithub"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://linkedin.com/in/nati-cabti",
+      "icon": "LuLinkedin"
+    },
+    {
+      "name": "Medium",
+      "url": "https://linkedin.com/in/nati-cabti",
+      "icon": "PiMediumLogoBold"
+    },
+    {
+      "name": "Twitter",
+      "url": "https://linkedin.com/in/nati-cabti",
+      "icon": "FaXTwitter"
+    },
+    {
+      "name": "RSS Feed",
+      "url": "/rss.xml",
+      "icon": "LuRss"
+    },
+    {
+      "name": "CV",
+      "url": "/cv",
+      "icon": "MdAttachment"
+    }
+  ],
+  "sidebarFooter": [
+    {
+      "itemType": "Credit",
+      "url": "https://www.digital-hero.com",
+      "title": "Digital Hero"
+    },
+    {
+      "itemType": "SourceCode",
+      "url": "https://github.com/NC555/digital-hero.com",
+      "title": "Code"
+    },
+    {
+      "itemType": "LicenseCode",
+      "url": "/terms",
+      "title": "Terms"
+    },
+    {
+      "itemType": "Docs",
+      "url": "https://digital-hero.com",
+      "title": "Docs"
+    }
+  ]
+}
