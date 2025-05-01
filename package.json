@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NC555/digital-hero.com"
+    "url": "https://github.com/NC555/noy-portfolio"
   },
   "homepage": "https://www.digital-hero.com",
   "bugs": {
-    "url": "https://github.com/NC555/digital-hero.com/issues"
+    "url": "https://github.com/NC555/noy-portfolio/issues"
   },
   "keywords": [
     "next.js",

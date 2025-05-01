@@ -24,9 +24,6 @@ export type Volunteering = {
   }[];
 };
 
-/**
- * TODO: https://github.com/NC555/digital-hero.com/issues/98
- */
 export type ResumeProps = {
   name: string;
   title: string;

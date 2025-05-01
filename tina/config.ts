@@ -1,4 +1,4 @@
-import { defineConfig } from "tinacms";
+// Removed unused defineConfig import
 import remarkHtml from "remark-html";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
