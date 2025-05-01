@@ -17,14 +17,17 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-type PortfolioQueryParams = Promise<{ tag?: string; page?: string }>;
+type PortfolioQueryParams = { tag?: string; page?: string };
 
+// Ensure searchParams are correctly accessed within the async component
 export default async function Portfolio({
   searchParams,
 }: {
   searchParams: PortfolioQueryParams;
 }) {
-  const { tag = "All", page = "1" } = await searchParams;
+  // Access searchParams directly
+  const tag = searchParams?.tag ?? "All";
+  const page = searchParams?.page ?? "1";
 
   const allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Image from "next/image";
-import Balancer from "react-wrap-balancer";
+// Replace Balancer with a simple span
 import Loading from "@/components/loading";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/filter/filter-select-box";
@@ -19,10 +19,12 @@ export const metadata = {
   description: blogConfig.metaDescription,
 };
 
-type BlogQueryParams = Promise<{ tag?: string; page?: string }>;
+type BlogQueryParams = { tag?: string; page?: string };
 
 async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
-  const { tag = "All", page = "1" } = await searchParams;
+  // Explicitly access searchParams properties
+  const tag = searchParams?.tag ?? "All";
+  const page = searchParams?.page ?? "1";
   let allBlogs = await getBlogPosts();
   const blogTags = [
     "All",
@@ -96,9 +98,9 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
                   </time>
                 </div>
                 <h3 className="text-2xl text-white-2 font-semibold leading-[1.3] transition-all hover:text-orange-yellow-crayola">
-                  <Balancer>
+                  <span>
                     <MarkdownRenderer content={post.metadata.title} />
-                  </Balancer>
+                  </span>
                 </h3>
                 <MarkdownRenderer
                   className="text-light-gray text-s font-light leading-6 overflow-hidden line-clamp-2"

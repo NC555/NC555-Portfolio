@@ -6,36 +6,26 @@ import DownloadCV from "@/components/resume/download-cv";
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks } from "react-icons/pi";
 import { MdOutlineDevices } from "react-icons/md";
-import { type IconType as ReactIconType } from 'react-icons'; // Import type for icons
-
+import { type IconType as ReactIconType } from 'react-icons'; 
 
 import type { Education, AwardLeaderships, TeachingExperience, ProfessionalExperience, Volunteering } from "@/types/resume";
-import type { Resume } from "@/types/resume"; // Import the main Resume type
+import type { Resume } from "@/types/resume"; 
 
-// Define interfaces matching the data structure from the API
-// Removed local ResumeItem and ResumeSection as types are now imported from types/resume.d.ts
-
-// Type for resume sections that have items
 type ResumeSectionWithItems = ProfessionalExperience | Education | AwardLeaderships | TeachingExperience | Volunteering;
 
-// Use imported types for ResumeConfig
 interface ResumeConfig extends Resume {
   // Add any other page-specific config if necessary, but extend the base Resume type
 }
 
-// Type guard to check if a section is a ResumeSectionWithItems (has an items property)
 function isResumeSectionWithItems(section: any): section is ResumeSectionWithItems {
   return section && typeof section === 'object' && 'items' in section && Array.isArray(section.items);
 }
 
-// Map icon name strings to actual React icon components
-// Ensure iconMap is still needed and compatible with VCardIconType if icon strings are used
 const iconMap: { [key: string]: ReactIconType } = {
   IoSchoolOutline: IoSchoolOutline,
   PiTrophy: PiTrophy,
   PiBooks: PiBooks,
-  MdOutlineDevices: MdOutlineDevices,
-  // Add other icons as needed
+  MdOutlineDevices: MdOutlineDevices
 };
 
 
@@ -76,24 +66,31 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 export default async function Resume() {
-
   const resumeData = await getResumeData();
+
+  // Check if cv.pdf exists in the public directory
+  let cvExists = false;
+  try {
+    const fs = require('fs');
+    const path = require('path');
+    cvExists = fs.existsSync(path.join(process.cwd(), 'public', 'cv.pdf'));
+  } catch (error) {
+    console.error('Error checking for CV file:', error);
+  }
 
   const sectionsOrder: (keyof ResumeConfig)[] = [
     'professionalExperiences',
     'educations',
     'awardLeaderships',
     'teachingExperiences',
-    'volunteering', 
+    'volunteering',
   ];
-
   
   return (
     <article>
-    
       {/* PageHeader uses the header from resumeConfig.json */}
       <PageHeader header={resumeData.header} />
-      <DownloadCV downloadSloganCV={resumeData.downloadSloganCV} /> {/* Pass the downloadSloganCV prop */}
+      {cvExists && <DownloadCV downloadSloganCV={resumeData.downloadSloganCV} />} {/* Only render if CV exists */}
 
       {sectionsOrder.map((sectionKey) => {
         const section = resumeData[sectionKey];
@@ -104,8 +101,6 @@ export default async function Resume() {
         return null; // Do not render if no items or not a section with items
       })}
 
-       {/* Optional: Add a message if all sections are empty, although unlikely for a resume page */}
-       {/* The condition here should check the keys that ARE being rendered by TimeLine */}
        {sectionsOrder.every(key => {
           const sec = resumeData[key];
           return !isResumeSectionWithItems(sec) || sec.items.length === 0;

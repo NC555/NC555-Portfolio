@@ -1,6 +1,5 @@
 import HomePageContent from "@/components/HomePageContent";
 import markdownToHtml from "@/lib/markdownToHtml";
-import clsx from "clsx";
 import { getAllPosts } from "@/lib/api";
 import { LatestArticles } from "@/components/about/latest-articles";
 
