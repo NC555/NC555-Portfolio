@@ -7,7 +7,7 @@ import LifeStyles from "@/components/about/life-styles";
 import CodingStats from "@/components/about/coding-stats";
 import AnimatedSection from "@/components/animated-section";
 import markdownToHtml from "@/lib/markdownToHtml";
-import clsx from "clsx";
+import { cn } from "@/lib/utils";
 import markdownStyles from "@/styles/markdown-styles.module.css";
 import { LatestArticles } from "@/components/about/latest-articles";
 import { LuGithub, LuPencil } from "react-icons/lu";
@@ -169,7 +169,7 @@ const HomePageContent: React.FC<HomePageContentProps> = ({
       <AnimatedSection>
         <CodeHeader id="introduction" text={introductionHeaderText || ""} />
         <div
-          className={clsx(markdownStyles["markdown"])}
+          className={cn(markdownStyles["markdown"])}
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </AnimatedSection>

@@ -4,7 +4,10 @@ import PageHeader from "@/components/page-header";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import config from "@/data/appConfig.json";
 import Link from "next/link";
-import { Home, ArrowLeft } from "lucide-react";
+// Use require for lucide-react to bypass potential module resolution issues
+const LucideIcons = require("lucide-react");
+const Home = LucideIcons.Home;
+const ArrowLeft = LucideIcons.ArrowLeft;
 
 const { title } = config;
 

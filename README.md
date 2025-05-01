@@ -54,6 +54,8 @@ _Coming soon_
    pnpm run dev
    ```
 
+   > **Note:** The `dev` script uses the `--turbo` flag to enable Next.js Turbopack for potentially faster development performance. It also sets a Node.js memory limit (`--max-old-space-size=8192`). You can adjust this memory value (e.g., `4096` for 4GB) in the `package.json` file based on your system's resources if needed.
+
 5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 6. Access the admin panel at [http://localhost:3000/admin](http://localhost:3000/admin) to manage content

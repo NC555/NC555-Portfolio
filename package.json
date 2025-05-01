@@ -23,7 +23,7 @@
     "markdown"
   ],
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=4096' tinacms dev -c \"next dev --port 3000\"",
+    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=8192' tinacms dev -c \"next dev --turbo --port 3000\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
