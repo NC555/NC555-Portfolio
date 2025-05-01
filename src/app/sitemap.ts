@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import appConfig from "@/data/appConfig.json";
 
+export const dynamic = "force-static";
+
 const siteURL = appConfig.siteURL;
 
 function mapPostsToSitemap(
