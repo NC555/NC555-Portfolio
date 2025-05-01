@@ -23,7 +23,7 @@
     "markdown"
   ],
   "scripts": {
-    "dev": "tinacms dev -c \"next dev --port 3000\"",
+    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=4096' tinacms dev -c \"next dev --port 3000\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
@@ -36,6 +36,7 @@
     "@radix-ui/react-icons": "^1.3.2",
     "@radix-ui/react-slot": "^1.2.0",
     "@testing-library/user-event": "^14.6.1",
+    "@tinacms/cli": "^1.9.5",
     "@types/node": "^22.13.17",
     "@types/uuid": "^10.0.0",
     "class-variance-authority": "^0.7.1",
@@ -78,7 +79,6 @@
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7",
     "tinacms": "^2.7.5",
-    "@tinacms/cli": "^1.9.5",
     "uuid": "^11.1.0"
   },
   "browserslist": {
@@ -99,6 +99,7 @@
     "@types/react-dom": "19.1.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "5.8.2"
