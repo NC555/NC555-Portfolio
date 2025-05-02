@@ -7,7 +7,7 @@ import tseslint from "@typescript-eslint/eslint-plugin";
 export default [
   eslintPluginReact.configs.recommended,
   eslintPluginReactHooks.configs.recommended,
-  ...tseslint.configs.recommended,
+  tseslint.configs.recommended,
   {
     plugins: {
       "@next/next": eslintPluginNext,
