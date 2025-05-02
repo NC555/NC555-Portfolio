@@ -46,7 +46,7 @@ _Coming soon_
    pnpm install
    ```
 
-3. Create a `.env.local` file based on `.env.example`
+3. Create a `.env` file based on `.env.example`
 
 4. Start the development server
 

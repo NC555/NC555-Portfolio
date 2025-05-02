@@ -29,7 +29,7 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allBlogs.map((post) => post.metadata.category ?? "")),
+      new Set(allBlogs.map((post) => post.metadata.category ?? ""))
     ),
   ];
   const selectedTag = tag;
@@ -47,7 +47,7 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
   // Get blogs for current page
   const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
   );
 
   return (
@@ -93,7 +93,7 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
                         month: "long",
                         day: "numeric",
                         year: "numeric",
-                      },
+                      }
                     )}
                   </time>
                 </div>
@@ -124,7 +124,7 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
 export default function Post({
   searchParams,
 }: {
-  searchParams: BlogQueryParams;
+  searchParams?: Record<string, string | string[] | undefined>;
 }) {
   return (
     <article>

@@ -23,17 +23,21 @@ type PortfolioQueryParams = { tag?: string; page?: string };
 export default async function Portfolio({
   searchParams,
 }: {
-  searchParams: PortfolioQueryParams;
+  searchParams?: Record<string, string | string[] | undefined>;
 }) {
   // Access searchParams directly
-  const tag = searchParams?.tag ?? "All";
-  const page = searchParams?.page ?? "1";
+  const tag = Array.isArray(searchParams?.tag)
+    ? searchParams?.tag[0] ?? "All"
+    : searchParams?.tag ?? "All";
+  const page = Array.isArray(searchParams?.page)
+    ? searchParams?.page[0] ?? "1"
+    : searchParams?.page ?? "1";
 
   const allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? "")),
+      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? ""))
     ),
   ];
   const selectedTag = tag;
@@ -44,7 +48,7 @@ export default async function Portfolio({
     selectedTag === "All"
       ? allPortfolioPosts
       : allPortfolioPosts.filter(
-          (post) => post.metadata.category === selectedTag,
+          (post) => post.metadata.category === selectedTag
         );
 
   // Calculate total pages
@@ -53,7 +57,7 @@ export default async function Portfolio({
   // Get blogs for current page
   const paginatedPortfolioPosts = filteredPortfolioPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
   );
 
   return (
