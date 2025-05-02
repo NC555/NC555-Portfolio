@@ -9,14 +9,12 @@ export default [
   eslintPluginReactHooks.configs.recommended,
   tseslint.configs.recommended,
   {
-    plugins: {
-      "@next/next": eslintPluginNext,
-    },
+    // Attempting to resolve "plugins" format error by removing the explicit plugins key
     rules: {
       ...eslintPluginNext.configs.recommended.rules,
       ...eslintPluginNext.configs["core-web-vitals"].rules,
-      // Add or override rules here if needed
       "react/react-in-jsx-scope": "off", // Next.js doesn't require React import
+      // Add or override rules here if needed
     },
   },
 ];
