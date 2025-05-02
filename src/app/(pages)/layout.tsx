@@ -4,7 +4,7 @@ import { headers } from "next/headers"; // Import headers
 
 import { nunito } from "@/app/fonts";
 import Header from "@/components/layout/header";
-import ClientSideBar from "@/components/layout/side-bar/client-side-bar";
+import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import { WebVitals } from "@/components/web-vitals";
@@ -87,7 +87,7 @@ async function HomeLayout({
         <main>
           {/* Move Hello inside main */}
           <Hello />
-          <ClientSideBar
+          <SideBar
             avatar={sidebarData.profile.avatar}
             firstName={firstName}
             lastName={lastName}

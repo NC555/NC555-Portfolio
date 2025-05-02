@@ -124,7 +124,7 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
 export default function Post({
   searchParams,
 }: {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams: Record<string, string | string[] | undefined>;
 }) {
   return (
     <article>
