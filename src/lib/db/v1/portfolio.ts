@@ -12,12 +12,12 @@ type Metadata = {
 };
 
 export const getPortfolioPosts = async () => {
-  const postsDirectory = path.join(process.cwd(), "src/contents/portfolios");
+  const postsDirectory = path.join(process.cwd(), "content/portfolios");
 
   // Use Promise.all to read files concurrently
   const fileNames = await fs.readdir(postsDirectory);
   const mdxFiles = fileNames.filter(
-    (file) => file.endsWith(".mdx") || file.endsWith(".md"),
+    (file) => file.endsWith(".mdx") || file.endsWith(".md")
   );
 
   const posts = await Promise.all(
@@ -35,14 +35,14 @@ export const getPortfolioPosts = async () => {
         tweetIds: extractTweetIds(content),
         content,
       };
-    }),
+    })
   );
 
   // Sort posts by date once, not on every request
   return posts.sort(
     (a, b) =>
       new Date(b.metadata.publishedAt).getTime() -
-      new Date(a.metadata.publishedAt).getTime(),
+      new Date(a.metadata.publishedAt).getTime()
   );
 };
 

@@ -1,5 +1,3 @@
-import pkg from "@eslint/js";
-const { fixupConfig } = pkg;
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginReactHooks from "eslint-plugin-react-hooks";
 import eslintPluginNext from "@next/eslint-plugin-next";
@@ -7,8 +5,8 @@ import tseslint from "@typescript-eslint/eslint-plugin";
 
 // Standard Next.js ESLint configuration
 export default tseslint.config(
-  fixupConfig(eslintPluginReact.configs.recommended),
-  fixupConfig(eslintPluginReactHooks.configs.recommended),
+  eslintPluginReact.configs.recommended,
+  eslintPluginReactHooks.configs.recommended,
   ...tseslint.configs.recommended,
   {
     plugins: {
