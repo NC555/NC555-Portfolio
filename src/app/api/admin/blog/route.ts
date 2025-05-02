@@ -4,7 +4,7 @@ import path from "path";
 import { PostData } from "@/types/post";
 import { revalidatePath } from "next/cache";
 
-const postsDirectory = path.join(process.cwd(), "src/contents/posts");
+const postsDirectory = path.join(process.cwd(), "_posts");
 
 // Helper to format data as markdown with frontmatter
 function formatPostDataToMarkdown(data: PostData): string {
