@@ -23,15 +23,17 @@ type PortfolioQueryParams = { tag?: string; page?: string };
 export default async function Portfolio({
   searchParams,
 }: {
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  // Access searchParams directly
-  const tag = Array.isArray(searchParams?.tag)
-    ? searchParams?.tag[0] ?? "All"
-    : searchParams?.tag ?? "All";
-  const page = Array.isArray(searchParams?.page)
-    ? searchParams?.page[0] ?? "1"
-    : searchParams?.page ?? "1";
+  // Await searchParams since it's a Promise
+  const resolvedParams = await searchParams;
+  // Access searchParams properties after awaiting
+  const tag = Array.isArray(resolvedParams?.tag)
+    ? resolvedParams?.tag[0] ?? "All"
+    : resolvedParams?.tag ?? "All";
+  const page = Array.isArray(resolvedParams?.page)
+    ? resolvedParams?.page[0] ?? "1"
+    : resolvedParams?.page ?? "1";
 
   const allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [
