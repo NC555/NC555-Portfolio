@@ -121,11 +121,11 @@ async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
   );
 }
 
-export default function Post({
-  searchParams,
-}: {
+interface BlogPageProps {
   searchParams: Record<string, string | string[] | undefined>;
-}) {
+}
+
+export default function Post({ searchParams }: BlogPageProps) {
   return (
     <article>
       <PageHeader header={blogConfig.header} />
