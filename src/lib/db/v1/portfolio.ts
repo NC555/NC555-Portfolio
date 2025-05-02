@@ -12,7 +12,7 @@ type Metadata = {
 };
 
 export const getPortfolioPosts = async () => {
-  const postsDirectory = path.join(process.cwd(), "content/portfolios");
+  const postsDirectory = path.join(process.cwd(), "src/contents/portfolios");
 
   // Use Promise.all to read files concurrently
   const fileNames = await fs.readdir(postsDirectory);
