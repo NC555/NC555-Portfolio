@@ -1,8 +1,7 @@
 import HomePageContent from "@/components/HomePageContent";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { getAllPosts } from "@/lib/api";
-import { LatestArticles } from "@/components/about/latest-articles";
-
+import { LatestArticles } from "@/components/home/latest-articles";
 import homeConfig from "@/data/homeConfig.json";
 
 import markdownStyles from "@/styles/markdown-styles.module.css";
@@ -28,6 +27,7 @@ import { FaReact, FaAws } from "react-icons/fa";
 import { BiLogoFlask } from "react-icons/bi";
 import { DiRedis } from "react-icons/di";
 import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
+import { MdOutlineSecurity, MdCloud } from "react-icons/md";
 
 const iconMap: { [key: string]: any } = {
   LuGithub,
@@ -55,7 +55,9 @@ const iconMap: { [key: string]: any } = {
   TbBrandDjango,
   SiKubernetes,
   SiPostman,
-  VscAzure
+  VscAzure,
+  MdOutlineSecurity,
+  MdCloud,
 };
 
 // Function to map icon names to imported components (Keep at top level)
@@ -63,13 +65,17 @@ const mapIcons = (data: any) => {
   if (!data) return data;
 
   if (Array.isArray(data)) {
-    return data.map(item => mapIcons(item));
+    return data.map((item) => mapIcons(item));
   }
 
-  if (typeof data === 'object' && data !== null) {
+  if (typeof data === "object" && data !== null) {
     const newData: any = {};
     for (const key in data) {
-      if (key === 'icon' && typeof data[key] === 'string' && iconMap[data[key]]) {
+      if (
+        key === "icon" &&
+        typeof data[key] === "string" &&
+        iconMap[data[key]]
+      ) {
         newData[key] = iconMap[data[key]];
       } else {
         newData[key] = mapIcons(data[key]);
@@ -80,7 +86,6 @@ const mapIcons = (data: any) => {
 
   return data;
 };
-
 
 async function About() {
   // Move data processing inside the component
@@ -95,9 +100,8 @@ async function About() {
     introductionHeaderText,
     globe,
     lifestyleHeaderText,
-    techStackHeaderText
+    techStackHeaderText,
   } = about;
-
 
   const allPosts = getAllPosts();
 
@@ -107,7 +111,7 @@ async function About() {
   // Construct the techStacks prop object correctly
   const techStacksProp = {
     ...techStacks, // Spread languages and frameworks from config
-    techStackHeaderText: techStackHeaderText // Add the required header text
+    techStackHeaderText: techStackHeaderText, // Add the required header text
   };
 
   // Pass the untransformed data from config, ensuring correct structure
@@ -117,12 +121,14 @@ async function About() {
       introduction={introduction || ""}
       introductionHeaderText={introductionHeaderText || ""}
       posts={allPosts}
-      techStacks={techStacksProp} 
+      techStacks={techStacksProp}
       techStackHeaderText={techStackHeaderText}
       githubUsername={githubUsername}
-      globe={globe as { markerLocation: [number, number]; locationString: string }}
+      globe={
+        globe as { markerLocation: [number, number]; locationString: string }
+      }
       lifestyleHeaderText={lifestyleHeaderText || ""}
-      lifestyles={lifestyles} 
+      lifestyles={lifestyles}
     />
   );
 }

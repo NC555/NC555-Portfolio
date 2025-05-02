@@ -76,17 +76,12 @@
     {
       "itemType": "SourceCode",
       "url": "https://github.com/NC555/noy-portfolio",
-      "title": "Code"
+      "title": "Github Repo"
     },
     {
       "itemType": "LicenseCode",
       "url": "/terms",
-      "title": "Terms"
-    },
-    {
-      "itemType": "Docs",
-      "url": "https://digital-hero.com",
-      "title": "Docs"
+      "title": "License"
     }
   ]
 }

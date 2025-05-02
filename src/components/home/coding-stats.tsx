@@ -1,6 +1,6 @@
 import React from "react";
-import CodeHeader from "@/components/about/code-header";
-import Globe from "@/components/about/globe";
+import CodeHeader from "@/components/home/code-header";
+import Globe from "@/components/home/globe";
 import GitHubCalendar from "react-github-calendar";
 import { ThemeInput } from "react-activity-calendar";
 import { Marquee } from "./marquee";
@@ -38,7 +38,6 @@ function CodingStats({
   globe,
   techStackHeaderText,
 }: CodingStatsProps) {
-  
   const yellowTheme: ThemeInput = {
     light: ["#EBEBEB", "#FFDA6B"],
     dark: ["#383838", "#FFDA6B"],

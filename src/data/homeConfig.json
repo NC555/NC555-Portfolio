@@ -10,26 +10,26 @@
     "githubUsername": "NC555",
     "slogan": "$ Docker compose up -d",
     "introductionHeaderText": "🔑 My Professional Core",
-    "introduction": "<div class=\"tech-badges-container\">\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/OS-Ubuntu-informational?style=flat&logo=ubuntu&color=E95420\" alt=\"Ubuntu\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/Container-Docker-informational?style=flat&logo=docker&color=2496ED\" alt=\"Docker\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/Server-Nginx-informational?style=flat&logo=nginx&color=269539\" alt=\"Nginx\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/Cache-Redis-informational?style=flat&logo=redis&color=DC382D\" alt=\"Redis\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/DB-MongoDB-informational?style=flat&logo=mongodb&color=47A248\" alt=\"MongoDB\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/DB-MySQL-informational?style=flat&logo=mysql&color=4479A1\" alt=\"MySQL\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/Framework-Laravel-informational?style=flat&logo=laravel&color=FF2D20\" alt=\"Laravel\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/Framework-Angular-informational?style=flat&logo=angular&color=DD0031\" alt=\"Angular\">\n</div>\n<div class=\"tech-badge\">\n    <img src=\"https://img.shields.io/badge/Framework-Next.js-informational?style=flat&logo=next.js&color=000000\" alt=\"Next.js\">\n</div>\n    </div>\n\n\n\n🚀 Digital Architect. Orchestrating Systems & Teams with a 😊\n\nI transform business visions into scalable technological realities. My code builds bridges between complex challenges and elegant solutions. With containerized microservices as my foundation, I craft digital ecosystems that evolve and scale predictably under pressure.\n\n🔧 My philosophy: Systems and teams scale best when built on the same principles—distributed responsibility, fail-safe redundancy, and continuous refinement.\n\n💡 My passion lies at the intersection of cloud architecture and business strategy, where I transform technical decisions into competitive advantages. I thrive on building high-performing teams that deliver solutions with measurable business impact.",
+    "introduction": "\n\n\n\n🚀 Digital Architect. Orchestrating Systems & Teams with a 😊\n\nI transform business visions into scalable technological realities. My code builds bridges between complex challenges and elegant solutions. With containerized microservices as my foundation, I craft digital ecosystems that evolve and scale predictably under pressure.\n\n🔧 My philosophy: Systems and teams scale best when built on the same principles—distributed responsibility, fail-safe redundancy, and continuous refinement.\n\n💡 My passion lies at the intersection of cloud architecture and business strategy, where I transform technical decisions into competitive advantages. I thrive on building high-performing teams that deliver solutions with measurable business impact.",
     "lifestyleHeaderText": "💡 Technical Curiosities & Ongoing Learning",
     "lifestyles": [
       {
-        "icon": "LuGithub",
+        "icon": "MdCloud",
         "title": "Cloud Architecture",
         "text": "Exploring edge computing and multi-cloud orchestration patterns for distributed systems."
       },
       {
-        "icon": "LuPencil",
+        "icon": "TbBrandOpenai",
         "title": "AI Integration",
         "text": "Implementing practical AI solutions that enhance business processes rather than replace human expertise."
       },
       {
-        "icon": "LuPencil",
+        "icon": "MdOutlineSecurity",
         "title": "Security by Design",
         "text": "Developing zero-trust security frameworks that protect data while maintaining seamless user experiences."
       },
       {
-        "icon": "TbPhotoSquareRounded",
+        "icon": "GrTurbolinux",
         "title": "Performance Optimization",
         "text": "Enjoy shaving milliseconds off response times through innovative caching and query optimization techniques."
       }

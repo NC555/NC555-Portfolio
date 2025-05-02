@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Post } from "@/interfaces/post";
 
 import { ProgressBarLink } from "@/components/progress-bar";
-import CodeHeader from "@/components/about/code-header";
+import CodeHeader from "@/components/home/code-header";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import StaggeredAnimationSection from "@/components/staggered-animation-section";
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -90,7 +90,7 @@ export function LatestArticles({ posts }: Props) {
         <div className="z-10 flex items-center justify-center my-4">
           <div
             className={cn(
-              "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
+              "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
             )}
           >
             <ProgressBarLink href="/post">

@@ -4,7 +4,8 @@ import markdownToHtml from "@/lib/markdownToHtml";
 import { cn } from "@/lib/utils";
 import markdownStyles from "@/styles/markdown-styles.module.css";
 
-const terms = `
+const terms = `\n\n\n\n\n
+
 MIT License
 
 Copyright (c) 2025 Nati Cabti
@@ -34,8 +35,46 @@ async function Terms() {
   return (
     <article>
       <AnimatedSection id="terms">
-        <PageHeader header="Terms of Service" />
+        <PageHeader header="License Code" />
       </AnimatedSection>
+      <div className="tech-badges-container">
+        <div className="tech-badge">
+          <img
+            src="https://img.shields.io/badge/Framework-Next.js-informational?style=flat&logo=next.js&color=000000"
+            alt="Next.js"
+          />
+        </div>
+        <div className="tech-badge">
+          <img
+            src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white"
+            alt="Next.js"
+          />
+        </div>
+        <div className="tech-badge">
+          <img
+            src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"
+            alt="TypeScript"
+          />
+        </div>
+        <div className="tech-badge">
+          <img
+            src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black"
+            alt="React"
+          />
+        </div>
+        <div className="tech-badge">
+          <img
+            src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"
+            alt="Tailwind CSS"
+          />
+        </div>
+        <div className="tech-badge">
+          <img
+            src="https://img.shields.io/badge/TinaCMS-302454?style=for-the-badge&logo=tinacms&logoColor=white"
+            alt="TinaCMS"
+          />
+        </div>
+      </div>
       <div
         className={cn(markdownStyles["markdown"])}
         dangerouslySetInnerHTML={{ __html: content }}

@@ -1,5 +1,5 @@
-import CodeHeader from "@/components/about/code-header";
-import ServiceItem from "@/components/about/service-item";
+import CodeHeader from "@/components/home/code-header";
+import ServiceItem from "@/components/home/service-item";
 
 import type { RawLifeStyle } from "@/types/about";
 

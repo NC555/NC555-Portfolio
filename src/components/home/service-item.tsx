@@ -3,8 +3,8 @@ import type { RawLifeStyle } from "@/types/about";
 import "@/styles/about/service-item.css";
 
 interface ServiceItemProps {
-  lifestyle: Omit<RawLifeStyle, 'icon'> & {
-    icon: any; // Use any to bypass type checking for the icon
+  lifestyle: Omit<RawLifeStyle, "icon"> & {
+    icon: any;
   };
 }
 
@@ -12,12 +12,12 @@ function ServiceItem({ lifestyle }: ServiceItemProps) {
   // Create a safe render function for the icon
   const renderIcon = () => {
     try {
-      if (typeof lifestyle.icon === 'function') {
+      if (typeof lifestyle.icon === "function") {
         return React.createElement(lifestyle.icon);
       }
       return lifestyle.icon;
     } catch (error) {
-      console.error('Error rendering icon:', error);
+      console.error("Error rendering icon:", error);
       return null;
     }
   };
