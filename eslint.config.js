@@ -4,7 +4,7 @@ import eslintPluginNext from "@next/eslint-plugin-next";
 import tseslint from "@typescript-eslint/eslint-plugin";
 
 // Standard Next.js ESLint configuration
-export default tseslint.config(
+export default [
   eslintPluginReact.configs.recommended,
   eslintPluginReactHooks.configs.recommended,
   ...tseslint.configs.recommended,
@@ -18,5 +18,5 @@ export default tseslint.config(
       // Add or override rules here if needed
       "react/react-in-jsx-scope": "off", // Next.js doesn't require React import
     },
-  }
-);
+  },
+];

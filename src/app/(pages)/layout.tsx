@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { headers } from "next/headers"; // Import headers
 
 import { nunito } from "@/app/fonts";
 import Header from "@/components/layout/header";
@@ -37,7 +38,11 @@ async function HomeLayout({
   readonly children: React.ReactNode;
 }) {
   // Fetch sidebar data using the API route to leverage caching and revalidation
-  const sidebarRes = await fetch(`/api/sidebar`, {
+  const headersList = await headers();
+  const host = headersList.get("host");
+  const baseUrl = `http://${host}`; // Construct absolute URL
+
+  const sidebarRes = await fetch(`${baseUrl}/api/sidebar`, {
     next: { tags: ["sidebar"] }, // Tag for revalidation
   });
   // Define default structure including sidebarFooter
