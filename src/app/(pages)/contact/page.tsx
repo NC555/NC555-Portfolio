@@ -8,13 +8,6 @@ import config from "@/data/appConfig.json";
 
 const { title } = config;
 
-/**
- * TODO: #341 still need to update with another method to avoid client side not available metadata
- * export const metadata: Metadata = {
- *   title: `Contact | ${title}`,
- * };
- */
-
 function Contact() {
   useEffect(() => {
     document.title = `Contact | ${title}`;
