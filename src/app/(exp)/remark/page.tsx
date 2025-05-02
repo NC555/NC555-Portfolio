@@ -7,23 +7,27 @@ import PageHeader from "@/components/page-header";
 export default function Index() {
   const allPosts = getAllPosts();
 
-  const heroPost = allPosts[0];
-
-  const morePosts = allPosts.slice(1);
-
   return (
     <article>
       <PageHeader header="Nati's Blog" />
       <Container>
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        {allPosts.length > 0 ? (
+          <>
+            <HeroPost
+              title={allPosts[0].title}
+              coverImage={allPosts[0].coverImage}
+              date={allPosts[0].date}
+              author={allPosts[0].author}
+              slug={allPosts[0].slug}
+              excerpt={allPosts[0].excerpt}
+            />
+            {allPosts.slice(1).length > 0 && (
+              <MoreStories posts={allPosts.slice(1)} />
+            )}
+          </>
+        ) : (
+          <p>No posts found.</p> // Optional: Add a message when no posts are available
+        )}
       </Container>
     </article>
   );
