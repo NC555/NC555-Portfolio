@@ -24,12 +24,14 @@ interface ResumeConfigRaw {
 
 // getResumeData will now return the raw data with string icons
 async function getResumeData(): Promise<ResumeConfigRaw> {
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_SITE_URL}/api/resumeConfig`,
-    {
-      next: { tags: ["resume"] },
-    }
+  const headersList = await import("next/headers").then((module) =>
+    module.headers()
   );
+  const host = headersList.get("host") || "localhost:3000";
+  const baseUrl = `http://${host}`;
+  const response = await fetch(`${baseUrl}/api/resumeConfig`, {
+    next: { tags: ["resume"] },
+  });
 
   if (!response.ok) {
     // This will activate the closest `error.js` Error Boundary

@@ -44,6 +44,9 @@ async function HomeLayout({
 
   const sidebarRes = await fetch(`${baseUrl}/api/sidebar`, {
     next: { tags: ["sidebar"] }, // Tag for revalidation
+    headers: {
+      Cookie: headersList.get("cookie") || "",
+    },
   });
   // Define default structure including sidebarFooter
   let sidebarData = {
