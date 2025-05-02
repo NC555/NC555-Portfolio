@@ -36,7 +36,7 @@ function CodingStats({
   techStacks,
   githubUsername,
   globe,
-  techStackHeaderText,
+  techStackHeaderText = "",
 }: CodingStatsProps) {
   const yellowTheme: ThemeInput = {
     light: ["#EBEBEB", "#FFDA6B"],
