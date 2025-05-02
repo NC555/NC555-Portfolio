@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
       // Keep the original admin route for our custom admin panel
     ];
   },
-  output: "export",
 };
 
 export default nextConfig;
