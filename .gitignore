@@ -70,3 +70,4 @@ NOTES.md
 memory-bank/
 .env.local
 .roo
+vercel-build-error-analysis.md

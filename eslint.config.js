@@ -1,4 +1,5 @@
-import { fixupConfig } from "@eslint/js";
+import pkg from "@eslint/js";
+const { fixupConfig } = pkg;
 import eslintPluginReact from "eslint-plugin-react";
 import eslintPluginReactHooks from "eslint-plugin-react-hooks";
 import eslintPluginNext from "@next/eslint-plugin-next";
