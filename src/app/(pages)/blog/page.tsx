@@ -21,10 +21,17 @@ export const metadata = {
 
 type BlogQueryParams = { tag?: string; page?: string };
 
-async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
+async function BlogPosts({
+  searchParams,
+}: {
+  searchParams: BlogQueryParams | Promise<BlogQueryParams>;
+}) {
+  // Resolve searchParams if it's a Promise
+  const resolvedParams =
+    searchParams instanceof Promise ? await searchParams : searchParams;
   // Explicitly access searchParams properties
-  const tag = searchParams?.tag ?? "All";
-  const page = searchParams?.page ?? "1";
+  const tag = resolvedParams?.tag ?? "All";
+  const page = resolvedParams?.page ?? "1";
   let allBlogs = await getBlogPosts();
   const blogTags = [
     "All",
