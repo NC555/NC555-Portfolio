@@ -51,11 +51,11 @@ async function HomeLayout({
   // Define default structure including sidebarFooter
   let sidebarData = {
     profile: {
-      avatar: "",
-      firstName: "",
-      lastName: "",
-      preferredName: "",
-      status: "",
+      avatar: "/images/profile.png",
+      firstName: "Default",
+      lastName: "User",
+      preferredName: "User",
+      status: "Available",
     },
     contacts: [],
     socialLinks: [],
@@ -66,7 +66,7 @@ async function HomeLayout({
       sidebarData = await sidebarRes.json();
     } catch (e) {
       console.error("Failed to parse sidebar data:", e);
-      // Use default empty data on parse error
+      // Use default data on parse error
     }
   } else {
     const text = await sidebarRes.text();
@@ -76,7 +76,8 @@ async function HomeLayout({
       sidebarRes.statusText
     );
     console.error("Response content:", text.substring(0, 500)); // Log the first 500 chars
-    // Use default empty data on fetch error
+    // Use default data on fetch error
+    console.log("Using default sidebar data due to fetch error.");
   }
   const { profile, contacts, socialLinks, sidebarFooter } = sidebarData; // Destructure sidebarFooter
   const { firstName, lastName, preferredName } = profile;

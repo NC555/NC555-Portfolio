@@ -34,8 +34,35 @@ async function getResumeData(): Promise<ResumeConfigRaw> {
   });
 
   if (!response.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch resume data");
+    console.error(
+      "Failed to fetch resume data:",
+      response.status,
+      response.statusText
+    );
+    console.log("Using default resume data due to fetch error.");
+    // Return default data if fetch fails
+    return {
+      metaTitle: "Resume | Default",
+      header: "Default Resume",
+      downloadSloganCV: "Download CV",
+      educations: { icon: "LuGraduationCap", title: "Education", items: [] },
+      awardLeaderships: {
+        icon: "LuAward",
+        title: "Awards & Leadership",
+        items: [],
+      },
+      teachingExperiences: {
+        icon: "LuBookOpen",
+        title: "Teaching Experience",
+        items: [],
+      },
+      professionalExperiences: {
+        icon: "LuBriefcase",
+        title: "Professional Experience",
+        items: [],
+      },
+      volunteering: { icon: "LuHeart", title: "Volunteering", items: [] },
+    };
   }
 
   const data: ResumeConfigRaw = await response.json();
