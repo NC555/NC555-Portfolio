@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
@@ -8,7 +9,6 @@ export const dynamic = "force-static";
 // GET handler to fetch the sidebar configuration
 export async function GET() {
   try {
-    // Read the sidebar configuration from the JSON file
     const filePath = path.join(process.cwd(), "src/data/sidebarConfig.json");
     const fileContents = fs.readFileSync(filePath, "utf8");
     const data = JSON.parse(fileContents);

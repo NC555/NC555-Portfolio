@@ -104,6 +104,8 @@
     "autoprefixer": "^10.4.21",
     "cross-env": "^7.0.3",
     "eslint": "^9.25.1",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
     "eslint-plugin-react": "*",
     "eslint-plugin-react-hooks": "*",
     "postcss": "^8.5.3",
