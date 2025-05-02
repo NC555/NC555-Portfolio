@@ -129,7 +129,7 @@ async function BlogPosts({
 }
 
 interface BlogPageProps {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 export default function Post({ searchParams }: BlogPageProps) {
