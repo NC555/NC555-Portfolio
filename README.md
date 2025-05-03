@@ -1,4 +1,4 @@
-# 🌟 Noy Portfolio 🌟
+# Noy Portfolio 🌟
 
 A modern, responsive portfolio website built with cutting-edge web technologies.
 
