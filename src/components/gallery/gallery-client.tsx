@@ -17,7 +17,7 @@ export default function GalleryClient({ galleryConfig }: GalleryClientProps) {
   const [photos, setPhotos] = useState<PhotoMetadata[]>([]);
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
-  const selectedTag = searchParams.get("tag") || "";
+  const selectedTag = searchParams ? searchParams.get("tag") ?? "All" : "All";
 
   useEffect(() => {
     const fetchPhotos = async () => {

@@ -34,7 +34,7 @@ function ServiceItem({ lifestyle }: ServiceItemProps) {
         <h4 className="text-white-2 text-lg font-bold mb-[7px]">
           {lifestyle.title}
         </h4>
-        <p className="text-light-gray text-sm font-light leading-6">
+        <p className="lifestyle-item-p text-light-gray text-sm font-light leading-6">
           {lifestyle.text}
         </p>
       </div>

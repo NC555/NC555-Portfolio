@@ -12,7 +12,7 @@ function LifeStyles({ lifestyles, headerText }: LifeStylesProps) {
   return (
     <section id="life-styles">
       <CodeHeader text={headerText} />
-      <ul className="mt-[30px] grid grid-cols-2 gap-[20px] lg:gap-y-[20px] lg:gap-x-[25px]">
+      <ul className="mt-[30px] grid lg:grid-cols-2 sm:grid-cols-2  gap-[20px] lg:gap-y-[20px] lg:gap-x-[25px]">
         {lifestyles.map((lifestyle: RawLifeStyle) => (
           <ServiceItem lifestyle={lifestyle} key={lifestyle.title} />
         ))}

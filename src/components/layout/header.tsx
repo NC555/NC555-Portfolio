@@ -14,6 +14,7 @@ function Header({ navigationLinks }: NavigationHeaderProps) {
   const currentPath = usePathname();
 
   const isActive = (path: string) => {
+    if (!currentPath) return false;
     if (path === "/post" && currentPath.startsWith("/post")) return true;
     else if (path === "/portfolio" && currentPath.startsWith("/portfolio"))
       return true;
