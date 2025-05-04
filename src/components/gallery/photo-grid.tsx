@@ -1,6 +1,7 @@
-import React from 'react';
-import { BlurFade } from '@/components/magicui/blur-fade';
-import { PhotoMetadata } from '@/types/gallery';
+import React from "react";
+import { BlurFade } from "@/components/magicui/blur-fade";
+import { PhotoMetadata } from "@/types/gallery";
+import { GALLERY_PATH } from "@/config/constants";
 
 interface PhotoGridProps {
   photos: PhotoMetadata[];
@@ -14,8 +15,10 @@ export default function PhotoGrid({ photos }: PhotoGridProps) {
           <BlurFade key={photo.id} delay={0.25 + idx * 0.05} inView>
             <img
               className="mb-4 size-full rounded-lg object-contain"
-              src={`/uploads/gallery/${photo.filename}`}
-              alt={`Photo ${idx + 1}${photo.tags.length > 0 ? ` - ${photo.tags.join(', ')}` : ''}`}
+              src={`/${GALLERY_PATH}/${photo.filename}`}
+              alt={`Photo ${idx + 1}${
+                photo.tags.length > 0 ? ` - ${photo.tags.join(", ")}` : ""
+              }`}
             />
           </BlurFade>
         ))}

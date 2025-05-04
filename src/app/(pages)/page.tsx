@@ -1,6 +1,6 @@
 import HomePageContent from "@/components/HomePageContent";
 import markdownToHtml from "@/lib/markdownToHtml";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts } from "@/config/api";
 import { LatestArticles } from "@/components/home/latest-articles";
 import homeConfig from "@/data/homeConfig.json";
 

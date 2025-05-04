@@ -40,7 +40,6 @@ async function getResumeData(): Promise<ResumeConfigRaw> {
       response.statusText
     );
     console.log("Using default resume data due to fetch error.");
-    // Return default data if fetch fails
     return {
       metaTitle: "Resume | Default",
       header: "Default Resume",

@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import Image from "next/image";
-// Replace Balancer with a simple span
 import Loading from "@/components/loading";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/filter/filter-select-box";
@@ -8,16 +7,14 @@ import FilterList from "@/components/filter/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
 import { ProgressBarLink } from "@/components/progress-bar";
-import { POSTS_PER_PAGE } from "@/lib/constants";
 import { getBlogPosts } from "@/lib/db/v1/post";
-
-// Fetch blog configuration data
 const blogConfig = require("@/data/blogConfig.json");
 
 export const metadata = {
   title: `Post | ${blogConfig.metaTitle}`,
   description: blogConfig.metaDescription,
 };
+const POSTS_PER_PAGE = blogConfig.postPerPage;
 
 type BlogQueryParams = { tag?: string; page?: string };
 
@@ -59,9 +56,9 @@ async function BlogPosts({
 
   return (
     <section className="blog-posts">
-      <FilterList path="post" selectedTag={selectedTag} blogTags={blogTags} />
+      <FilterList path="blog" selectedTag={selectedTag} blogTags={blogTags} />
       <FilterSelectBox
-        path="post"
+        path="blog"
         selectedTag={selectedTag}
         blogTags={blogTags}
       />
@@ -79,13 +76,13 @@ async function BlogPosts({
             >
               <figure className="blog-banner-box">
                 <Image
-                  src={post.metadata.banner}
+                  src={post.metadata.banner || "/placeholder.jpg"}
                   alt={post.metadata.alt || "Blog post image"}
-                  width={1600}
-                  height={900}
-                  priority={false}
-                  placeholder="blur"
+                  width={960}
+                  height={540}
                   loading="eager"
+                  priority
+                  placeholder="blur"
                   blurDataURL="https://docs.digital-hero.com/images/cover-with-NC555-com.png"
                 />
               </figure>
@@ -122,7 +119,7 @@ async function BlogPosts({
         currentPage={currentPage}
         totalPages={totalPages}
         selectedTag={selectedTag}
-        basePath="/post"
+        basePath="/blog"
       />
     </section>
   );

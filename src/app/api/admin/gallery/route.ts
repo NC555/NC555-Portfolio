@@ -6,7 +6,7 @@ import {
   addPhotoMetadata,
   updatePhotoTags,
   deletePhotoMetadata,
-} from "@/lib/gallery-metadata";
+} from "@/config/gallery-metadata";
 import { promises as fs } from "fs";
 import path from "path";
 

@@ -1,7 +1,7 @@
 import Container from "@/app/(exp)/remark/_components/container";
 import { HeroPost } from "@/app/(exp)/remark/_components/hero-post";
 import { MoreStories } from "@/app/(exp)/remark/_components/more-stories";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts } from "@/config/api";
 import PageHeader from "@/components/page-header";
 
 export default function Index() {

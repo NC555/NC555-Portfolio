@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { MdExpandMore } from "react-icons/md";
 import { useResponsiveImageSize } from "@/hooks/use-responsive-image-size";
-import { breakpoints } from "@/lib/constants";
+import { breakpoints } from "@/config/constants";
 
 import "@/styles/side-bar/sidebar-info.css";
 import "@/styles/side-bar/info-more-btn.css";
@@ -32,9 +32,13 @@ function SideBarInfo({
     <div className="sidebar-info">
       <figure className="avatar-box">
         <Image
-          id={`${firstName}${preferredName?.trim() ? ` (${preferredName})` : ''} ${lastName}`}
+          id={`${firstName}${
+            preferredName?.trim() ? ` (${preferredName})` : ""
+          } ${lastName}`}
           src={avatar}
-          alt={`${firstName}${preferredName?.trim() ? ` (${preferredName})` : ''} ${lastName}`}
+          alt={`${firstName}${
+            preferredName?.trim() ? ` (${preferredName})` : ""
+          } ${lastName}`}
           width={imageSize.width}
           height={imageSize.height}
           quality={50}
@@ -45,9 +49,12 @@ function SideBarInfo({
       <div className="info-content">
         <h1
           className="name"
-          title={`${firstName}${preferredName?.trim() ? ` (${preferredName})` : ''} ${lastName}`}
+          title={`${firstName}${
+            preferredName?.trim() ? ` (${preferredName})` : ""
+          } ${lastName}`}
         >
-          {firstName}{preferredName?.trim() ? ` (${preferredName})` : ''} {lastName}
+          {firstName}
+          {preferredName?.trim() ? ` (${preferredName})` : ""} {lastName}
         </h1>
         <p className="text-white-1 bg-onyx text-xs font-light max-w-max rounded-[8px] custom-lg:m-auto px-3 py-1 md:px-[18px] md:py-[5px]">
           {status}

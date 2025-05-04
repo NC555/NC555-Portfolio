@@ -1,4 +1,3 @@
-// Manually define ClassValue as the import might be unreliable
 type ClassValue =
   | string
   | number
@@ -8,7 +7,6 @@ type ClassValue =
   | { [key: string]: boolean }
   | ClassValue[];
 
-// Use require to import modules
 const clsx = require("clsx").default || require("clsx");
 const twMerge = require("tailwind-merge").twMerge;
 

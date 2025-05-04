@@ -5,5 +5,3 @@ summary: This is a placeholder file.
 banner: ""
 alt: ""
 ---
-
-This is a placeholder portfolio entry.

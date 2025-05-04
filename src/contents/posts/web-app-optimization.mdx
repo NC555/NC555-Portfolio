@@ -1,0 +1,847 @@
+---
+title: Web Application Optimization: Non-Functional Requirements (NFR)
+publishedAt: 2023-02-11
+category: Optimization
+tags: Optimization
+summary: non-functional requirements (NFRs) determine how well the application will perform these functions. These NFRs are critical for user satisfaction, scalability, and business success.
+banner: https://wp101.com/wp-content/uploads/2024/03/best-wordpress-speed-and-optimization-plugins.png
+mathjax: false
+---
+
+
+
+## Introduction
+
+When building web applications, developers often focus heavily on functional requirements—what the application should do. However, non-functional requirements (NFRs) determine how well the application will perform these functions. These NFRs are critical for user satisfaction, scalability, and business success.
+
+This article explores key non-functional requirements for web application performance optimization, providing practical examples and TypeScript snippets to help you implement these concepts in your own projects.
+
+![Performance Optimization Diagram](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F369facba-0136-4687-b794-bc58e3139f5c_2250x2752.heic)
+
+## Key Performance Optimization Factors
+
+### 1. Response Time/Latency
+
+Response time refers to the interval between a user interaction (like clicking a button) and the application's response. For web applications, this is perhaps the most noticeable performance factor to users.
+
+![Response Time Diagram](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd97be48c-61fc-4043-9d2a-3df9bf41f4f5_1938x1246.png)
+
+#### Key Metrics:
+- **Average Response Time**: The mean time for all requests
+- **95th Percentile**: Time within which 95% of requests are completed
+- **Time to First Byte (TTFB)**: Time until the browser receives the first byte of response
+
+#### Optimization Techniques:
+
+**1. Code Splitting with Dynamic Imports**
+
+Break large JavaScript bundles into smaller chunks that load on demand:
+
+```typescript
+// Before optimization - large bundle
+import { ComplexChart } from './complex-chart';
+
+function Dashboard() {
+  return <ComplexChart data={chartData} />;
+}
+
+// After optimization - dynamically imported
+import { lazy, Suspense } from 'react';
+const ComplexChart = lazy(() => import('./complex-chart'));
+
+function Dashboard() {
+  return (
+    <Suspense fallback={<div>Loading chart...</div>}>
+      <ComplexChart data={chartData} />
+    </Suspense>
+  );
+}
+```
+
+**2. Memoization for Expensive Calculations**
+
+Cache the results of expensive functions:
+
+```typescript
+// Before optimization
+function getFilteredData(items: Item[], filter: string): Item[] {
+  console.log('Filtering items...'); // This runs on every render
+  return items.filter(item => item.name.includes(filter));
+}
+
+// After optimization with useMemo
+import { useMemo } from 'react';
+
+function ItemList({ items, filter }: Props) {
+  const filteredItems = useMemo(() => {
+    console.log('Filtering items...'); // This runs only when dependencies change
+    return items.filter(item => item.name.includes(filter));
+  }, [items, filter]);
+  
+  return <>{filteredItems.map(item => <ItemRow key={item.id} item={item} />)}</>;
+}
+```
+
+**3. Debouncing User Input**
+
+Prevent excessive API calls for user input:
+
+```typescript
+import { useState, useEffect } from 'react';
+
+function SearchComponent() {
+  const [query, setQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
+  
+  // Update debounced value after 300ms of no changes
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), 300);
+    return () => clearTimeout(timer);
+  }, [query]);
+  
+  // Fetch results only when debouncedQuery changes
+  useEffect(() => {
+    if (debouncedQuery) {
+      fetchSearchResults(debouncedQuery);
+    }
+  }, [debouncedQuery]);
+  
+  return (
+    <input 
+      type="text" 
+      value={query}
+      onChange={e => setQuery(e.target.value)} 
+      placeholder="Search..." 
+    />
+  );
+}
+```
+
+### 2. Throughput
+
+Throughput measures how many operations your web application can handle in a given time period. High throughput is essential for applications with many concurrent users.
+
+![Throughput Diagram](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9a021d80-675a-4aa8-86c4-b1846a8fe75b_1938x1246.png)
+
+#### Key Metrics:
+- **Requests per second (RPS)**: How many API calls your server can handle
+- **Transactions per second (TPS)**: Database operations processed per second
+- **Concurrent users**: Number of simultaneous active users
+
+#### Optimization Techniques:
+
+**1. Implementing Connection Pooling**
+
+Reuse database connections instead of creating new ones for each request:
+
+```typescript
+// Example using connection pooling with TypeORM
+import { createConnection, ConnectionOptions } from 'typeorm';
+
+const dbConfig: ConnectionOptions = {
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'user',
+  password: 'password',
+  database: 'myapp',
+  entities: ['src/entities/**/*.ts'],
+  // Connection pooling settings
+  extra: {
+    max: 20, // Maximum number of connections in the pool
+    min: 5,  // Minimum number of connections to keep open
+    idle: 10000 // How long a connection can be idle before being released
+  }
+};
+
+// Create and use the connection pool
+async function setupDatabase() {
+  const connection = await createConnection(dbConfig);
+  console.log('Database connection established with connection pooling');
+  return connection;
+}
+```
+
+**2. Implementing Caching**
+
+Cache expensive API responses to reduce database load:
+
+```typescript
+import NodeCache from 'node-cache';
+
+// Simple in-memory cache with 5-minute TTL by default
+const cache = new NodeCache({ stdTTL: 300 });
+
+// Express middleware for caching
+function cacheMiddleware(req: Request, res: Response, next: NextFunction) {
+  const key = req.originalUrl;
+  const cachedResponse = cache.get(key);
+  
+  if (cachedResponse) {
+    console.log(`Cache hit for ${key}`);
+    return res.send(cachedResponse);
+  }
+  
+  // Store the original send method
+  const originalSend = res.send;
+  
+  // Override res.send to cache the response before sending
+  res.send = function(body) {
+    cache.set(key, body);
+    return originalSend.call(this, body);
+  };
+  
+  next();
+}
+
+// Use the middleware for specific routes
+app.get('/api/products', cacheMiddleware, productController.getAllProducts);
+```
+
+**3. Using Worker Threads for CPU-Intensive Tasks**
+
+Offload heavy processing to worker threads:
+
+```typescript
+// main.ts
+import { Worker } from 'worker_threads';
+
+function processLargeDataset(data: any[]): Promise<any> {
+  return new Promise((resolve, reject) => {
+    const worker = new Worker('./worker.js', {
+      workerData: { data }
+    });
+    
+    worker.on('message', resolve);
+    worker.on('error', reject);
+    worker.on('exit', (code) => {
+      if (code !== 0) {
+        reject(new Error(`Worker stopped with exit code ${code}`));
+      }
+    });
+  });
+}
+
+// worker.ts
+import { parentPort, workerData } from 'worker_threads';
+
+// Perform CPU-intensive calculation
+function performComplexAnalysis(data: any[]) {
+  // ... complex data processing logic
+  return result;
+}
+
+const result = performComplexAnalysis(workerData.data);
+parentPort.postMessage(result);
+```
+
+### 3. Resource Utilization
+
+Efficient resource utilization ensures your web application uses CPU, memory, and network bandwidth optimally.
+
+#### Optimization Techniques:
+
+**1. Implementing Memory Leak Detection**
+
+Monitor and fix memory leaks in your frontend application:
+
+```typescript
+// Simple memory usage monitoring in browser
+function monitorMemoryUsage() {
+  if (performance && 'memory' in performance) {
+    const memory = (performance as any).memory;
+    console.log(`Used JS Heap: ${Math.round(memory.usedJSHeapSize / 1048576)} MB`);
+    console.log(`Total JS Heap: ${Math.round(memory.totalJSHeapSize / 1048576)} MB`);
+    
+    // Alert if heap usage is above 90%
+    if (memory.usedJSHeapSize / memory.jsHeapSizeLimit > 0.9) {
+      console.warn('Memory usage is high - possible memory leak!');
+    }
+  }
+}
+
+// Call regularly to track memory usage
+setInterval(monitorMemoryUsage, 10000);
+```
+
+**2. Implementing Image Optimization**
+
+Optimize images to reduce bandwidth usage:
+
+```typescript
+// React component for lazy-loaded, responsive images
+import { useState, useEffect } from 'react';
+
+interface OptimizedImageProps {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+function OptimizedImage({ src, alt, width, height }: OptimizedImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  
+  // Generate optimized image URL with resizing parameters
+  const optimizedSrc = `${src}?w=${width}&q=80&format=webp`;
+  
+  return (
+    <div className="image-container" style={{ width, height }}>
+      {!isLoaded && <div className="placeholder" />}
+      <img
+        src={optimizedSrc}
+        alt={alt}
+        loading="lazy"
+        onLoad={() => setIsLoaded(true)}
+        style={{ opacity: isLoaded ? 1 : 0 }}
+      />
+    </div>
+  );
+}
+```
+
+**3. Using Web Workers for Background Tasks**
+
+Offload non-UI work to web workers:
+
+```typescript
+// main.ts - Main thread code
+const worker = new Worker('worker.js');
+
+// Send data to worker
+worker.postMessage({ action: 'process', data: largeDataset });
+
+// Receive processed results
+worker.onmessage = (event) => {
+  const { processedData } = event.data;
+  updateUI(processedData);
+};
+
+// worker.ts - Worker thread
+self.onmessage = (event) => {
+  const { action, data } = event.data;
+  
+  if (action === 'process') {
+    // Perform CPU-intensive work without blocking UI
+    const result = processLargeDataset(data);
+    self.postMessage({ processedData: result });
+  }
+};
+
+function processLargeDataset(data) {
+  // CPU-intensive operation
+  return data.map(item => /* complex transformation */);
+}
+```
+
+### 4. Scalability
+
+Scalability refers to how well your web application can handle growing user loads and data volumes.
+
+![Scalability Diagram](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F15edda60-b253-4a41-bbbf-fc93a99e0c7d_1938x1246.png)
+
+#### Optimization Techniques:
+
+**1. Implementing Horizontal Scaling with Serverless Functions**
+
+Use serverless functions to automatically scale with demand:
+
+```typescript
+// AWS Lambda function with TypeScript
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+
+export async function handler(
+  event: APIGatewayProxyEvent
+): Promise<APIGatewayProxyResult> {
+  try {
+    // Process the request
+    const body = JSON.parse(event.body || '{}');
+    const result = await processRequest(body);
+    
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ result })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Internal Server Error' })
+    };
+  }
+}
+
+async function processRequest(data: any) {
+  // Your business logic here
+  return { processed: true, data };
+}
+```
+
+**2. Implementing Database Sharding**
+
+Distribute data across multiple database instances:
+
+```typescript
+// Simplified database sharding example
+class UserRepository {
+  private shards: Database[] = [
+    new Database('shard1.example.com'),
+    new Database('shard2.example.com'),
+    new Database('shard3.example.com')
+  ];
+  
+  // Determine which shard to use based on user ID
+  private getShardForUser(userId: string): Database {
+    // Simple sharding by hashing the user ID and using modulo
+    const shardIndex = this.hashUserId(userId) % this.shards.length;
+    return this.shards[shardIndex];
+  }
+  
+  private hashUserId(userId: string): number {
+    // Simple hash function for demonstration
+    return userId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  }
+  
+  async getUserById(userId: string): Promise<User | null> {
+    const shard = this.getShardForUser(userId);
+    return shard.query('SELECT * FROM users WHERE id = ?', [userId]);
+  }
+  
+  async createUser(user: NewUser): Promise<User> {
+    const shard = this.getShardForUser(user.id);
+    return shard.query('INSERT INTO users (id, name, email) VALUES (?, ?, ?)', 
+      [user.id, user.name, user.email]);
+  }
+}
+```
+
+### 5. Availability and Resiliency
+
+Availability ensures your web application remains accessible to users, while resiliency focuses on recovering from failures.
+
+![Availability Percentages](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4dfda870-a38e-490e-8b6c-e174f2083476_1938x1246.png)
+
+#### Optimization Techniques:
+
+**1. Implementing Circuit Breakers**
+
+Prevent cascading failures by implementing circuit breakers:
+
+```typescript
+// Simple circuit breaker implementation
+class CircuitBreaker {
+  private failureCount: number = 0;
+  private lastFailureTime: number = 0;
+  private state: 'CLOSED' | 'OPEN' | 'HALF_OPEN' = 'CLOSED';
+  
+  constructor(
+    private readonly failureThreshold: number = 5,
+    private readonly resetTimeout: number = 30000 // 30 seconds
+  ) {}
+  
+  async execute<T>(fn: () => Promise<T>): Promise<T> {
+    if (this.state === 'OPEN') {
+      // Check if it's time to try again
+      if (Date.now() - this.lastFailureTime > this.resetTimeout) {
+        this.state = 'HALF_OPEN';
+      } else {
+        throw new Error('Circuit is OPEN - service unavailable');
+      }
+    }
+    
+    try {
+      const result = await fn();
+      
+      // Reset on success if half-open
+      if (this.state === 'HALF_OPEN') {
+        this.reset();
+      }
+      
+      return result;
+    } catch (error) {
+      this.handleFailure();
+      throw error;
+    }
+  }
+  
+  private handleFailure(): void {
+    this.failureCount++;
+    this.lastFailureTime = Date.now();
+    
+    if (this.failureCount >= this.failureThreshold || this.state === 'HALF_OPEN') {
+      this.state = 'OPEN';
+    }
+  }
+  
+  private reset(): void {
+    this.failureCount = 0;
+    this.state = 'CLOSED';
+  }
+}
+
+// Usage example
+const apiCircuitBreaker = new CircuitBreaker();
+
+async function fetchUserData(userId: string) {
+  return apiCircuitBreaker.execute(async () => {
+    const response = await fetch(`/api/users/${userId}`);
+    if (!response.ok) throw new Error('API request failed');
+    return response.json();
+  });
+}
+```
+
+**2. Implementing Retry with Exponential Backoff**
+
+Automatically retry failed operations with increasing delays:
+
+```typescript
+async function fetchWithRetry<T>(
+  url: string, 
+  options: RequestInit = {},
+  maxRetries: number = 3
+): Promise<T> {
+  let retries = 0;
+  
+  while (true) {
+    try {
+      const response = await fetch(url, options);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      retries++;
+      
+      if (retries >= maxRetries) {
+        throw error;
+      }
+      
+      // Calculate exponential backoff delay: 2^retries * 100ms
+      const delay = Math.pow(2, retries) * 100;
+      console.log(`Retry #${retries} after ${delay}ms`);
+      
+      // Wait before retrying
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+}
+
+// Usage example
+try {
+  const data = await fetchWithRetry<UserData>('/api/users/123');
+  console.log('User data:', data);
+} catch (error) {
+  console.error('Failed after multiple retries:', error);
+}
+```
+
+### 6. Front-End Performance Optimization
+
+#### Optimization Techniques:
+
+**1. Implementing Code Splitting**
+
+Break your JavaScript bundle into smaller chunks:
+
+```typescript
+// webpack.config.js
+module.exports = {
+  // ... other webpack config
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            // Get the name of the npm package
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
+            
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`;
+          }
+        }
+      }
+    }
+  }
+};
+```
+
+**2. Implementing Lazy Loading for Routes in React**
+
+Load routes only when needed:
+
+```typescript
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+// Immediately loaded component
+import Home from './Home';
+
+// Lazy-loaded components
+const Dashboard = lazy(() => import('./Dashboard'));
+const Profile = lazy(() => import('./Profile'));
+const Settings = lazy(() => import('./Settings'));
+
+function App() {
+  return (
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/settings" component={Settings} />
+        </Switch>
+      </Suspense>
+    </Router>
+  );
+}
+```
+
+**3. Implementing Critical CSS**
+
+Inline critical CSS and defer non-critical CSS:
+
+```typescript
+// Server-side rendering with critical CSS
+import { extractCritical } from '@emotion/server';
+import { renderToString } from 'react-dom/server';
+
+function renderPage(App) {
+  const appHtml = renderToString(<App />);
+  const { html, css } = extractCritical(appHtml);
+  
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <style data-emotion="css">${css}</style>
+        <link rel="preload" href="/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/styles.css"></noscript>
+      </head>
+      <body>
+        <div id="root">${html}</div>
+        <script src="/main.js"></script>
+      </body>
+    </html>
+  `;
+}
+```
+
+### 7. Data Consistency and Durability
+
+Consistency ensures data integrity, while durability ensures data isn't lost even during failures.
+
+![Consistency Models](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7a681e83-925a-423f-8b23-2194d9fbc784_1938x1246.png)
+
+#### Optimization Techniques:
+
+**1. Implementing Optimistic UI Updates**
+
+Update the UI immediately while changes process in the background:
+
+```typescript
+import { useState } from 'react';
+
+function TodoList() {
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  async function addTodo(text: string) {
+    // Generate temporary ID
+    const tempId = `temp-${Date.now()}`;
+    const newTodo = { id: tempId, text, completed: false };
+    
+    // Optimistically update UI
+    setTodos(prevTodos => [...prevTodos, newTodo]);
+    setIsSubmitting(true);
+    
+    try {
+      // Send to server
+      const response = await fetch('/api/todos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      
+      // Replace temporary item with real one from server
+      const savedTodo = await response.json();
+      setTodos(prevTodos => 
+        prevTodos.map(todo => todo.id === tempId ? savedTodo : todo)
+      );
+    } catch (error) {
+      // Revert optimistic update on error
+      setTodos(prevTodos => prevTodos.filter(todo => todo.id !== tempId));
+      alert('Failed to add todo. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+  
+  // Rest of component...
+}
+```
+
+**2. Implementing Offline Support with Service Workers**
+
+Allow your web app to work offline:
+
+```typescript
+// service-worker.ts
+// Cache assets during installation
+self.addEventListener('install', (event: ExtendableEvent) => {
+  event.waitUntil(
+    caches.open('app-v1').then(cache => {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/styles.css',
+        '/main.js',
+        '/api/initial-data'
+      ]);
+    })
+  );
+});
+
+// Serve from cache, falling back to network
+self.addEventListener('fetch', (event: FetchEvent) => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request).then(fetchResponse => {
+        // Cache API responses for later offline use
+        if (event.request.url.includes('/api/')) {
+          const responseClone = fetchResponse.clone();
+          caches.open('api-cache-v1').then(cache => {
+            cache.put(event.request, responseClone);
+          });
+        }
+        return fetchResponse;
+      });
+    }).catch(() => {
+      // For navigation requests, serve index.html
+      if (event.request.mode === 'navigate') {
+        return caches.match('/index.html');
+      }
+      return new Response('Network error happened', {
+        status: 408,
+        headers: { 'Content-Type': 'text/plain' }
+      });
+    })
+  );
+});
+
+// In your main application JavaScript file
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registered with scope:', registration.scope);
+      })
+      .catch(error => {
+        console.error('ServiceWorker registration failed:', error);
+      });
+  });
+}
+```
+
+### 8. Security Optimization
+
+Security ensures your web application is protected from various threats.
+
+#### Optimization Techniques:
+
+**1. Implementing Content Security Policy (CSP)**
+
+Prevent XSS attacks with CSP:
+
+```typescript
+// Express middleware for setting CSP headers
+import express from 'express';
+
+const app = express();
+
+app.use((req, res, next) => {
+  // Set strict Content Security Policy
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self';" +
+    "script-src 'self' https://trusted-cdn.com;" +
+    "style-src 'self' https://trusted-cdn.com;" +
+    "img-src 'self' https://trusted-cdn.com data:;" +
+    "connect-src 'self' https://api.example.com;" +
+    "font-src 'self' https://trusted-cdn.com;" +
+    "object-src 'none';" +
+    "media-src 'self';" +
+    "frame-src 'none';"
+  );
+  next();
+});
+```
+
+**2. Implementing API Rate Limiting**
+
+Prevent abuse of your APIs:
+
+```typescript
+// Express rate limiting middleware
+import rateLimit from 'express-rate-limit';
+
+// Create a limiter
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  message: 'Too many requests from this IP, please try again after 15 minutes'
+});
+
+// Apply to all API endpoints
+app.use('/api/', apiLimiter);
+
+// Create a stricter limiter for authentication endpoints
+const authLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 5, // 5 failed attempts per hour
+  skipSuccessfulRequests: true, // Don't count successful logins
+  message: 'Too many login attempts, please try again later'
+});
+
+// Apply to login endpoint
+app.use('/api/auth/login', authLimiter);
+```
+
+## Creating a Web App Optimization Strategy
+
+Optimizing web applications requires a balanced approach that considers all these non-functional requirements together. Here's a step-by-step strategy:
+
+1. **Measure First**: Establish performance baselines using tools like Lighthouse, WebPageTest, and browser DevTools
+2. **Identify Bottlenecks**: Focus on the most critical performance issues
+3. **Apply Targeted Optimizations**: Implement specific techniques based on identified issues
+4. **Test and Validate**: Verify improvements with metrics and user testing
+5. **Monitor Continuously**: Use performance monitoring to maintain optimization
+
+## Conclusion
+
+Web application optimization is not a one-time task but an ongoing process. By focusing on these non-functional requirements, you can create web applications that are not just functional but also performant, scalable, and resilient.
+
+Remember that optimization often involves trade-offs. For example, adding caching improves performance but may introduce consistency challenges. The key is to understand your application's specific needs and user expectations, then balance your optimization efforts accordingly.
+
+## References
+
+1. Grigorik, I. (2023). High Performance Browser Networking. O'Reilly Media.
+2. Osmani, A. (2022). Learning Patterns: Solid Web Development from Start to Ship. Smashing Magazine.
+3. Wagner, J. (2022). Web Performance in Action. Manning Publications.
+4. Google Developers. (2023). Web Vitals. https://web.dev/vitals/
+5. Mozilla Developer Network. (2023). Performance. https://developer.mozilla.org/en-US/docs/Web/Performance
+6. React Documentation. (2023). Code-Splitting. https://reactjs.org/docs/code-splitting.html
+7. AWS Documentation. (2023). Lambda Function Scaling. https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html
+8. Nygard, M. (2018). Release It!: Design and Deploy Production-Ready Software. Pragmatic Bookshelf.

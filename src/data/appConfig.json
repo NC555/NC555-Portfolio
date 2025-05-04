@@ -10,8 +10,7 @@
   "navigationLinks": [
     { "path": "/", "label": "About" },
     { "path": "/resume", "label": "Resume" },
-    { "path": "/portfolio", "label": "Portfolio" },
-    { "path": "/blog", "label": "Blog" },
+    { "path": "/blog", "label": "Tech Blog" },
     { "path": "/gallery", "label": "Gallery" }
   ],
   "avatar": "/images/profile.png",

@@ -40,14 +40,14 @@ export default function GalleryClient({ galleryConfig }: GalleryClientProps) {
   }, []);
 
   // Extract unique tags from photos
-  const uniqueTags = Array.from(
-    new Set(photos.flatMap((photo) => photo.tags))
-  ).filter(Boolean);
+  const uniqueTags = Array.from(new Set(photos.flatMap((photo) => photo.tags)));
+  const allTags = ["All", ...Array.from(uniqueTags).filter(Boolean)];
 
   // Filter photos based on selected tag
-  const filteredPhotos = selectedTag
-    ? photos.filter((photo) => photo.tags.includes(selectedTag))
-    : photos;
+  const filteredPhotos =
+    selectedTag === "All"
+      ? photos
+      : photos.filter((photo) => photo.tags.includes(selectedTag));
 
   if (loading) {
     return (
@@ -70,7 +70,7 @@ export default function GalleryClient({ galleryConfig }: GalleryClientProps) {
         <FilterList
           path="gallery"
           selectedTag={selectedTag}
-          blogTags={uniqueTags}
+          blogTags={allTags}
         />
       </div>
       <PhotoGrid photos={filteredPhotos} />

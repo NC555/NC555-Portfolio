@@ -1,5 +1,6 @@
 {
   "header": "Nati's Blog",
   "metaTitle": "Nati Cabti Technical Blog",
-  "metaDescription": "Technical Blog Of myself!"
+  "metaDescription": "Technical Blog Of myself!",
+  "postPerPage": 6
 }

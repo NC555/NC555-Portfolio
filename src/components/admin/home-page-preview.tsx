@@ -1,9 +1,14 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React from "react";
 import HomePageContent from "@/components/HomePageContent";
-import { InputAboutData, RawLifeStyle, RawTechStacks, GlobeConfig } from "@/types/about";
-import { getIconComponent } from "@/lib/icon-utils";
+import {
+  InputAboutData,
+  RawLifeStyle,
+  RawTechStacks,
+  GlobeConfig,
+} from "@/types/about";
+import { getIconComponent } from "@/config/icon-utils";
 
 // Props for HomePagePreview itself
 interface HomePagePreviewProps {
@@ -11,10 +16,11 @@ interface HomePagePreviewProps {
 }
 // --- End Local Type Definitions ---
 
-
 const HomePagePreview: React.FC<HomePagePreviewProps> = ({ aboutData }) => {
   if (!aboutData) {
-    return <div className="p-4 text-center text-gray-500">Loading preview...</div>;
+    return (
+      <div className="p-4 text-center text-gray-500">Loading preview...</div>
+    );
   }
 
   const {
@@ -32,12 +38,17 @@ const HomePagePreview: React.FC<HomePagePreviewProps> = ({ aboutData }) => {
   } = aboutData;
 
   // Use the header field directly if available, otherwise construct from name fields
-  const header = aboutData.header || (preferredName
-    ? `About ${preferredName}`
-    : `About ${firstName} ${lastName}`);
+  const header =
+    aboutData.header ||
+    (preferredName
+      ? `About ${preferredName}`
+      : `About ${firstName} ${lastName}`);
 
   const lifestylesWithComponents = aboutData?.lifestyles || [];
-  const techStacksWithComponents = aboutData?.techStacks || { programmingLanguages: [], frameworks: [] };
+  const techStacksWithComponents = aboutData?.techStacks || {
+    programmingLanguages: [],
+    frameworks: [],
+  };
   // --- End data preparation ---
 
   return (

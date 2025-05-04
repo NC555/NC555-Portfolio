@@ -153,6 +153,10 @@ body {
   padding-inline-end: 25px;
 }
 
+.pis-20 {
+  padding-inline-start: 20px;
+}
+
 .fixed {
   z-index: 9;
 }
@@ -588,7 +592,8 @@ main {
   background: hsla(0, 0%, 0%, 0.5);
 }
 
-.project-item-icon-box {
+.project-item-icon-box,
+.blog-item-icon-box {
   --scale: 0.8;
 
   background: var(--jet);
@@ -606,6 +611,11 @@ main {
 }
 
 .project-item>a:hover .project-item-icon-box {
+  --scale: 1;
+  opacity: 1;
+}
+
+.blog-banner-box>a:hover .blog-item-icon-box {
   --scale: 1;
   opacity: 1;
 }

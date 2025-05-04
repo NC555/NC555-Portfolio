@@ -16,9 +16,9 @@ function AnchorHeader({ level, children, ...props }: HeaderProps) {
       case 1:
         return "text-3xl text-white-2 font-bold mt-14 mb-10";
       case 2:
-        return "text-2xl text-white-2 font-bold mt-12 mb-8";
+        return "text-2xl text-white-2 font-bold mt-12 mb-8 pis-20";
       case 3:
-        return "text-xl text-white-2 font-bold mt-10 mb-6";
+        return "text-xl text-white-2 font-bold mt-10 mb-6 pis-20";
       case 4:
         return "text-lg text-white-2 font-semibold mt-8 mb-4";
       case 5:
@@ -44,7 +44,7 @@ function AnchorHeader({ level, children, ...props }: HeaderProps) {
         href={`#${id}`}
         className="no-underline text-[#d6d6d6] hover:underline flex items-center"
       >
-        <span className="absolute left-[-2.0rem] top-[0.2rem] opacity-0 transition-opacity duration-200 ease-in-out scale-90 group-hover:opacity-100">
+        <span className="absolute left-[-0.5rem] top-[0.2rem] opacity-100 transition-opacity duration-200 ease-in-out scale-60 group-hover:opacity-100">
           <IoLink />
         </span>
       </a>

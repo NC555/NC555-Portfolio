@@ -83,7 +83,6 @@ const iconMap: Record<string, IconType> = {
 
 export function getIconComponent(iconName: string): VCardIconType {
   const IconComponent = iconMap[iconName];
-  console.log(`Attempting to get icon component for: ${iconName}`); // Added log
   if (!IconComponent) {
     console.warn(`Icon ${iconName} not found in iconMap`);
     return LuCircle; // Fallback icon

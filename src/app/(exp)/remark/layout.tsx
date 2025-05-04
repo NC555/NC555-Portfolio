@@ -7,7 +7,7 @@ import Header from "@/components/layout/header";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
-import { WebVitals } from "@/components/web-vitals";
+import WebVitalsWrapper from "@/components/web-vitals/web-vitals-wrapper";
 import config from "@/data/appConfig.json";
 
 import "@/app/globals.css";
@@ -24,17 +24,12 @@ const {
   siteURL,
 } = config;
 
-const {
-  googleAnalyticId,
-  googleTagManagerId,
-} = config.googleProvider;
-
+const { googleAnalyticId, googleTagManagerId } = config.googleProvider;
 
 const firstName = "First"; // Placeholder
 const lastName = "Last"; // Placeholder
 const middleName = ""; // Placeholder
 const preferredName = "Preferred"; // Placeholder
-
 
 export const metadata: Metadata = {
   title: title,
@@ -104,7 +99,7 @@ const addJsonLd = () => {
 function RootLayout({ children }: { readonly children: React.ReactNode }) {
   return (
     <html lang="en" className={`${nunito.className}`}>
-      <WebVitals gaId={googleAnalyticId} />
+      <WebVitalsWrapper gaId={googleAnalyticId} />
       <body>
         <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
           <Hello />

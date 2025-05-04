@@ -32,6 +32,34 @@ interface CodingStatsProps {
   techStackHeaderText?: string;
 }
 
+/**
+ * Returns a date that is a specified number of months before the current date
+ * @param {number} reduceMonth - Number of months to subtract from current date
+ * @return {Date} - Date object representing the date that many months ago
+ */
+
+const filterLastNMonths = (contributions, months = 11) => {
+  const today = new Date();
+
+  // Calculate the cutoff date (N months ago)
+  let cutoffMonth = today.getMonth() - months;
+  let cutoffYear = today.getFullYear();
+
+  // Adjust the year if we go back past January
+  while (cutoffMonth < 0) {
+    cutoffMonth += 12;
+    cutoffYear -= 1;
+  }
+
+  const cutoffDate = new Date(cutoffYear, cutoffMonth, today.getDate());
+
+  // Filter contributions that are after the cutoff date
+  return contributions.filter((day) => {
+    const date = new Date(day.date);
+    return date >= cutoffDate;
+  });
+};
+
 function CodingStats({
   techStacks,
   githubUsername,
@@ -88,6 +116,7 @@ function CodingStats({
       <BlurFade inView delay={0.4} direction="up">
         <section id="github-calendar" className="text-light-gray mt-5">
           <GitHubCalendar
+            transformData={filterLastNMonths}
             username={githubUsername}
             blockSize={12}
             blockMargin={4}

@@ -18,7 +18,7 @@ function Paragraph({ node, children, ...rest }: ParagraphProps) {
   }
 
   return (
-    <p {...rest} className="mb-4">
+    <p {...rest} className="mb-4 text-wrap break-normal">
       {children}
     </p>
   );

@@ -6,13 +6,14 @@ const METADATA_PATH = path.join(
   process.cwd(),
   "src",
   "data",
-  "photosMetadata.json"
+  "galleryConfig.json"
 );
 
 export async function getPhotosMetadata(): Promise<PhotoMetadata[]> {
   try {
     const data = await fs.readFile(METADATA_PATH, "utf-8");
-    return JSON.parse(data) as PhotoMetadata[];
+    const parsedData = JSON.parse(data);
+    return parsedData.photos as PhotoMetadata[];
   } catch (error) {
     console.error("Error reading photos metadata:", error);
     return [];

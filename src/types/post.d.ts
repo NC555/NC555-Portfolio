@@ -33,6 +33,8 @@ export type BlogPost = {
     banner: string;
     alt?: string;
     image?: string;
+    tags: string[]; // Added tags to metadata
+    mathjax?: boolean; // Added mathjax to metadata
   };
   slug: string;
   tweetIds: string[];

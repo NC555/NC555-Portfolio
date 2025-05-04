@@ -28,7 +28,7 @@ function NotFound() {
             </div>
           </div>
           <h2 className="text-xl text-gray-500 dark:text-gray-400">
-            Oops! The page you're looking for seems to have wandered off.
+            Oops! The page you're looking for is not found,
           </h2>
         </div>
 

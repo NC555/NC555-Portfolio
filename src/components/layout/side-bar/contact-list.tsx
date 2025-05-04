@@ -2,12 +2,11 @@
 
 import IconBox from "@/components/icon-box";
 import Link from "next/link";
-import { getIconComponent } from "@/lib/icon-utils";
+import { getIconComponent } from "@/config/icon-utils";
 import type { Contact } from "@/types/config"; // Added import
 
 import "@/styles/side-bar/contact-info.css";
 import "@/styles/side-bar/contact-list.css";
-
 
 interface ContactsListProps {
   contacts: Contact[];
@@ -18,7 +17,7 @@ function ContactsList({ contacts }: ContactsListProps) {
     <ul className="contacts-list">
       {contacts.map((contact, index) => {
         const { icon: iconName, title, content, link } = contact;
-        
+
         // Convert icon string to actual component using shared utility
         const Icon = getIconComponent(iconName);
 

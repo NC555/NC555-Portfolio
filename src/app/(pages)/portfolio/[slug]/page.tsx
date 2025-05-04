@@ -112,15 +112,17 @@ export default async function Portfolio(props: { params: tParams }) {
   }
 
   return (
-    <PortfolioPostView project={{
-      title: post.metadata.title,
-      publishedAt: post.metadata.publishedAt,
-      summary: post.metadata.summary,
-      category: post.metadata.category || "",
-      banner: post.metadata.banner,
-      alt: post.metadata.alt || "",
-      image: post.metadata.image || "",
-      content: post.content,
-    }} />
+    <PortfolioPostView
+      project={{
+        title: post.metadata.title,
+        publishedAt: post.metadata.publishedAt,
+        summary: post.metadata.summary,
+        category: post.metadata.category || "",
+        banner: post.metadata.banner,
+        alt: post.metadata.alt || "",
+        image: post.metadata.image || "",
+        content: post.content,
+      }}
+    />
   );
 }

@@ -91,8 +91,9 @@ export default async function Portfolio({
                   <div className="project-item-icon-box">
                     <LuEye />
                   </div>
+
                   <Image
-                    src={post.metadata.banner}
+                    src={post.metadata.banner || "/placeholder.jpg"}
                     alt={post.metadata.alt || "Portfolio post image"}
                     width={960}
                     height={540}
@@ -103,8 +104,10 @@ export default async function Portfolio({
                     blurDataURL="https://docs.digital-hero.com/images/cover-with-NC555-com.png"
                   />
                 </figure>
-                <h3 className="project-title">
-                  <MarkdownRenderer content={post.metadata.title} />
+                <h3 className="text-2xl text-white-2 font-semibold leading-[1.3] transition-all hover:text-orange-yellow-crayola">
+                  <span>
+                    <MarkdownRenderer content={post.metadata.title} />
+                  </span>
                 </h3>
                 <p className="project-category">{post.metadata.category}</p>
               </ProgressBarLink>

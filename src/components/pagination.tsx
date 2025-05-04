@@ -14,7 +14,7 @@ function Pagination({
   basePath,
 }: PaginationProps) {
   return (
-    <div className="flex justify-center mt-5">
+    <div className="pagination-wrapper flex justify-center mt-5">
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
         <ProgressBarLink
           key={pageNum}

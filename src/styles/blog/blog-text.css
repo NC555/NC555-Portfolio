@@ -17,6 +17,10 @@
     list-style: disc;
 }
 
+.blog-text ul li::marker {
+    color: white;
+}
+
 .blog-text ul li ul li {
     list-style: circle;
 }

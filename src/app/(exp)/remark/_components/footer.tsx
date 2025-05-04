@@ -1,5 +1,5 @@
 import Container from "@/app/(exp)/remark/_components/container";
-import { EXAMPLE_PATH } from "@/lib/constants";
+import { EXAMPLE_PATH } from "@/config/constants";
 
 export function Footer() {
   return (

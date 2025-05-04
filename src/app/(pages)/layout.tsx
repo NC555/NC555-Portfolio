@@ -1,13 +1,13 @@
 import Script from "next/script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { headers } from "next/headers"; // Import headers
+import { headers } from "next/headers";
 
 import { nunito } from "@/app/fonts";
 import Header from "@/components/layout/header";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
-import { WebVitals } from "@/components/web-vitals";
+import WebVitalsWrapper from "@/components/web-vitals/web-vitals-wrapper";
 import appConfig from "@/data/appConfig.json";
 
 import type { Metadata } from "next";
@@ -75,8 +75,6 @@ async function HomeLayout({
       sidebarRes.status,
       sidebarRes.statusText
     );
-    console.error("Response content:", text.substring(0, 500)); // Log the first 500 chars
-    // Use default data on fetch error
     console.log("Using default sidebar data due to fetch error.");
   }
   const { profile, contacts, socialLinks, sidebarFooter } = sidebarData; // Destructure sidebarFooter
@@ -85,7 +83,7 @@ async function HomeLayout({
 
   return (
     <>
-      <WebVitals gaId={googleAnalyticId} />
+      <WebVitalsWrapper gaId={googleAnalyticId} />
       {/* Keep ProgressBar wrapping main content */}
       <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
         <main>
