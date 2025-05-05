@@ -29,13 +29,8 @@ A modern, responsive portfolio website built with cutting-edge web technologies 
 
 ## 📸 Screenshots
 
-<table>
-  <tr><td align="center"><img src="./public/demo/sidebar-editor.gif" width="694px" alt="Sidebar Editor"/></td></tr>
-  <tr><td align="center"><img src="./public/demo/home-editor.jpg" width="694px" alt="Home Editor"/></td></tr>
-  <tr><td align="center"><img src="./public/demo/resume-editor.jpg" width="694px" alt="Resume Editor"/></td></tr>
-  <tr><td align="center"><img src="./public/demo/blog-editor.jpg" width="694px" alt="Blog Editor"/></td></tr>
-  <tr><td align="center"><img src="./public/demo/gallery-editor.jpg" width="694px" alt="Gallery Editor"/></td></tr>
-</table>
+<div style="display:flex; flex-wrap:wrap; justify-content:center"> <img src="./public/demo/sidebar-editor.gif" alt="Sidebar Editor" width="694" style="max-width: 694px; margin-bottom: 25px;"/> <img src="./public/demo/home-editor.jpg" alt="Home Editor" width="694" style="max-width: 694px; margin-bottom: 25px;"/> <img src="./public/demo/resume-editor.jpg" alt="Resume Editor" width="694" style="max-width: 694px; margin-bottom: 25px;"/> <img src="./public/demo/blog-editor.jpg" alt="Blog Editor" width="694" style="max-width: 694px; margin-bottom: 25px;"/> <img src="./public/demo/gallery-editor.jpg" alt="Gallery Editor" width="694" style="max-width: 694px; margin-bottom: 25px;"/> 
+</div>
 
 ## 🚀 Getting Started
 
