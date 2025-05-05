@@ -22,7 +22,7 @@ A modern, responsive portfolio website built with cutting-edge web technologies.
 
 ## 📸 Screenshots
 
-_Coming soon_
+![Sidebar Editor](./public/demo/sidebar-editor.gif)
 
 ## 🚀 Getting Started
 
