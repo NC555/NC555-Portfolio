@@ -1,4 +1,4 @@
-# Noy Portfolio 🌟
+# Nati Portfolio 🌟
 
 > A developer-friendly portfolio website with visual editing capabilities powered by TinaCMS
 
@@ -29,11 +29,8 @@ A modern, responsive portfolio website built with cutting-edge web technologies 
 
 ## 📸 Screenshots
 
-![Sidebar Editor](./public/demo/sidebar-editor.gif)
-![Home Editor](./public/demo/home-editor.jpg)
-![Resume Editor](./public/demo/resume-editor.jpg)
-![Blog Editor](./public/demo/blog-editor.jpg)
-![Gallery Editor](./public/demo/gallery-editor.jpg)
+<div align="center"> <img src="./public/demo/sidebar-editor.gif" alt="Sidebar Editor" width="800" style="max-width: 800px; margin-bottom: 10px;"/> <img src="./public/demo/home-editor.jpg" alt="Home Editor" width="800" style="max-width: 800px; margin-bottom: 10px;"/> <img src="./public/demo/resume-editor.jpg" alt="Resume Editor" width="800" style="max-width: 800px; margin-bottom: 10px;"/> <img src="./public/demo/blog-editor.jpg" alt="Blog Editor" width="800" style="max-width: 800px; margin-bottom: 10px;"/> <img src="./public/demo/gallery-editor.jpg" alt="Gallery Editor" width="800" style="max-width: 800px; margin-bottom: 10px;"/> 
+</div>
 
 ## 🚀 Getting Started
 
