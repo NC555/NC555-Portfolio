@@ -36,7 +36,7 @@ export async function generateMetadata({
     description,
     openGraph: {
       title,
-      siteName: "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+      siteName: "Nati Cabtihttps:// | Open Source Enthusiast",
       description,
       type: "article",
       publishedTime,

@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: title,
     description: description,
-    images: "https://docs.digital-hero.com/images/cover-with-NC555-com.png",
+    images: "https://docs.digital-hero.com/images/NC555.png",
   },
   icons: {
     icon: "/favicon-96x96.png",
@@ -85,7 +85,7 @@ const addJsonLd = () => {
       ],
       "jobTitle": "Software Engineer",
       "skills": "Software Engineering, Web Development, Open Source",
-      "image": "https://www.digital-hero.com/images/profile.webp",
+      "image": "https://nc555.online/images/profile.webp",
       "url": "${siteURL}",
       "sameAs": [
         "https://www.linkedin.com/in/NC555/",

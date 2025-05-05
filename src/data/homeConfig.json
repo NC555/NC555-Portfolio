@@ -150,7 +150,10 @@
       ]
     },
     "globe": {
-      "markerLocation": [31.9038607, 38.8110239],
+      "markerLocation": [
+        31.9038607,
+        38.8110239
+      ],
       "locationString": "Rehovot, Israel (UTC +03:00)"
     }
   }

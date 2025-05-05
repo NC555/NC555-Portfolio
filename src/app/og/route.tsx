@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
           alignItems: "flex-start",
           justifyContent: "center",
           backgroundImage:
-            "url(https://docs.digital-hero.com/images/cover-with-NC555-com.png)",
+            "url(https://docs.digital-hero.com/images/NC555.png)",
         }}
       >
         <div
@@ -56,6 +56,6 @@ export async function GET(req: NextRequest) {
       headers: {
         "Content-Type": "image/png",
       },
-    },
+    }
   );
 }

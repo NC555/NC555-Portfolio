@@ -8,7 +8,7 @@
     "title": "Education",
     "items": [
       {
-        "company": " Ben-Gurion University of the Negev",
+        "company": "BGU - Ben-Gurion University of the Negev",
         "location": "",
         "role": "MBA , GGFBM Executives MBA",
         "duration": "Oct. 2006 —  Aug. 2010",
@@ -17,9 +17,9 @@
       {
         "company": "SCE - Shamoon College of Engineering",
         "location": "",
-        "role": "B.Sc , IE & Information Systems",
+        "role": "B.Sc , Information Systems Engineering",
         "duration": "Oct. 2017 —  Aug. 2019",
-        "tasksMarkdown": "◻️ Specializing in information systems engineering.\n◻️ Honored Student."
+        "description": "Specialized in information systems engineering with honors distinction.\nRecognized as an honored student for academic excellence throughout the program."
       }
     ]
   },

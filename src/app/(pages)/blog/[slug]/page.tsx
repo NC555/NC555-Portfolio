@@ -37,7 +37,7 @@ export async function generateMetadata({
     description,
     openGraph: {
       title,
-      siteName: "Nati Cabti - Digitial Hero | Open Source Enthusiast",
+      siteName: "Nati Cabtihttps:// | Open Source Enthusiast",
       description,
       type: "article",
       publishedTime,
@@ -118,7 +118,7 @@ export default async function Post(props: { params: tParams }) {
     content: post.content,
     slug: post.slug,
     category: post.metadata.category || "Uncategorized",
-    tags: []
+    tags: [],
   };
 
   return (

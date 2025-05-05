@@ -101,7 +101,7 @@ export default async function Portfolio({
                     placeholder="blur"
                     loading="eager"
                     quality={50}
-                    blurDataURL="https://docs.digital-hero.com/images/cover-with-NC555-com.png"
+                    blurDataURL="https://docs.digital-hero.com/images/NC555.png"
                   />
                 </figure>
                 <h3 className="text-2xl text-white-2 font-semibold leading-[1.3] transition-all hover:text-orange-yellow-crayola">

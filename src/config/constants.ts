@@ -10,4 +10,4 @@ export const EXAMPLE_PATH = "blog-starter";
 export const GALLERY_PATH = "uploads/gallery";
 export const CMS_NAME = "Markdown";
 export const HOME_OG_IMAGE_URL =
-  "https://docs.digital-hero.com/images/cover-with-NC555-com.png";
+  "https://docs.digital-hero.com/images/NC555.png";

@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={nunito.className}>
-      <body>
+      <body className={process.env.ENV === "PROD" ? "prod-env" : ""}>
         {children}
       </body>
       {googleAnalyticId && <GoogleAnalytics gaId={googleAnalyticId} />}
