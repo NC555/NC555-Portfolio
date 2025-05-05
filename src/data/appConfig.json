@@ -28,7 +28,6 @@
     "images": [
       {
         "url": "./public/nc555-portfolio-template.png",
-        "width": 694,
         "alt": "NC555 Portfolio Template"
       }
     ]
@@ -141,8 +140,6 @@
       "images": [
         {
           "url": "https://nc555.online/nc555-portfolio-template.png",
-          "width": 1200,
-          "height": 630,
           "alt": "Nati Cabti - Digitial Hero Cover Image"
         }
       ]

@@ -122,6 +122,13 @@ This template works seamlessly with Vercel, Netlify, and other Next.js-compatibl
 | Best Practices | 95/100  |
 | SEO            | 100/100 |
 
+## 🤝 Credits
+
+This project was inspired by the following repositories:
+
+- [https://github.com/1chooo/1chooo.com](https://github.com/1chooo/1chooo.com)
+- [https://github.com/codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio)
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
