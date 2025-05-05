@@ -25,8 +25,7 @@ export async function GET(req: NextRequest) {
           flexDirection: "column",
           alignItems: "flex-start",
           justifyContent: "center",
-          backgroundImage:
-            "url(https://docs.digital-hero.com/images/NC555.png)",
+          backgroundImage: "url(https://nc555.online/images/NC555.png)",
         }}
       >
         <div

@@ -106,17 +106,17 @@
     "familyName": "",
     "additionalName": "",
     "gender": "male",
-    "birthPlace": "New Taipei, TW",
-    "nationality": "Taiwan",
+    "birthPlace": "Israel",
+    "nationality": "Israel",
     "alumniOf": [
       {
         "@type": "CollegeOrUniversity",
-        "name": "National Central University",
-        "sameAs": "https://www.ncu.edu.tw/"
+        "name": "BGU - Ben-Gurion University of the Negev",
+        "sameAs": ""
       }
     ],
-    "jobTitle": "Software Engineer",
-    "skills": "Software Engineering, Web Development, Open Source",
+    "jobTitle": "Chief Technology Officer",
+    "skills": "I'm a technology leader with extensive experience architecting enterprise SaaS platforms and orchestrating distributed development teams across multiple domains. Passionate about transforming complex technical concepts into tangible business outcomes through strategic roadmapping and innovative solutions.",
     "image": "https://nc555.online/images/profile.webp",
     "url": "https://nc555.online/",
     "sameAs": [
@@ -127,7 +127,7 @@
   },
   "homeMetaData": {
     "metadataBase": "https://nc555.online/",
-    "title": "Nati Cabti",
+    "title": "Nati Cabti | CTO",
     "description": "",
     "authors": [{ "name": "" }],
     "creator": "",
@@ -140,7 +140,7 @@
       "description": "",
       "images": [
         {
-          "url": "https://docs.digital-hero.com/images/NC555.png",
+          "url": "https://nc555.online/nc555-portfolio-template.png",
           "width": 1200,
           "height": 630,
           "alt": "Nati Cabti - Digitial Hero Cover Image"
@@ -152,7 +152,7 @@
       "card": "summary_large_image",
       "title": "Nati Cabti - CTO Portfolio",
       "description": "",
-      "images": "https://docs.digital-hero.com/images/NC555.png"
+      "images": "https://nc555.online/nc555-portfolio-template.png"
     },
     "icons": {
       "icon": "/favicon-96x96.png",
@@ -168,7 +168,7 @@
   },
   "giscusConfig": {
     "id": "comments",
-    "repo": "NC555/digital-hero.com",
+    "repo": "NC555/NC555-Portfolio",
     "repoId": "",
     "category": "General",
     "categoryId": "",

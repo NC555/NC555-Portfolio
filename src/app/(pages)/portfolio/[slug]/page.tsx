@@ -28,8 +28,8 @@ export async function generateMetadata({
     banner,
   } = post.metadata;
   let ogImage = banner
-    ? `https://digital-hero.com${banner}`
-    : `https://digital-hero.com/og?title=${title}`;
+    ? `https://nc555.online/${banner}`
+    : `https://nc555.online/og?title=${title}`;
 
   return {
     title,
@@ -40,7 +40,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://digital-hero.com/portfolio/${post.slug}`,
+      url: `https://nc555.online/portfolio/${post.slug}`,
       locale: "en_US",
       images: [
         {

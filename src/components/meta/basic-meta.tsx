@@ -3,7 +3,8 @@ import type { Config } from "@/types/config";
 
 const config: Config = {
   siteTitle: "Nati Cabti (NC555) | Open Source Enthusiast",
-  siteDescription: "I'm Nati Cabti, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+  siteDescription:
+    "I'm Nati Cabti, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
   siteKeywords: [
     { keyword: "Nati Cabti" },
     { keyword: "NC555" },
@@ -11,12 +12,11 @@ const config: Config = {
     { keyword: "Next.js" },
     { keyword: "React" },
   ],
-  baseURL: "https://digital-hero.com",
+  baseURL: "https://nc555.online/",
   postsPerPage: 10,
   twitterAccount: "@your_twitter_account",
   githubAccount: "your_github_account",
 };
-
 
 type BasicMetaProps = {
   title?: string;

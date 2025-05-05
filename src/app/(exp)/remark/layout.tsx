@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: title,
     description: description,
-    images: "https://docs.digital-hero.com/images/NC555.png",
+    images: "https://nc555.online/images/NC555.png",
   },
   icons: {
     icon: "/favicon-96x96.png",
@@ -74,8 +74,8 @@ const addJsonLd = () => {
       "familyName": "${lastName}", 
       "additionalName": "${preferredName}", 
       "gender": "male",
-      "birthPlace": "New Taipei, TW",
-      "nationality": "Taiwan",
+      "birthPlace": "Israel",
+      "nationality": "Israel",
       "alumniOf":[
         {
           "@type": "CollegeOrUniversity",

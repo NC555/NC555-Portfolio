@@ -1,10 +1,12 @@
-# Nati Portfolio 🌟
+# NC555 Portfolio
 
 > A developer-friendly portfolio website with visual editing capabilities powered by TinaCMS
 
 A modern, responsive portfolio website built with cutting-edge web technologies that makes content management effortless through an intuitive visual editor.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-blue?style=for-the-badge&logo=vercel)](https://nc555.vercel.app/) [![GitHub Stars](https://img.shields.io/github/stars/NC555/NC555?style=for-the-badge&logo=github)](https://github.com/NC555/NC555/stargazers) [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://claude.ai/chat/LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-blue?style=for-the-badge&logo=vercel)](https://nc555.online/)
+[![GitHub Stars](https://img.shields.io/github/stars/NC555/NC55-Portfolio?style=for-the-badge&logo=github)](https://github.com/NC555/NC555-Portfolio)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/NC555/NC555-Portfolio/LICENSE)
 
 ## ✨ Features
 
