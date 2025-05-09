@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--max-old-space-size=16384' tinacms dev -c \"next dev --turbo --port 3000\"",
-    "build": "next build",
+    "build": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit"
