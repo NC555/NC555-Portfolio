@@ -1,9 +1,8 @@
 .sidebar-info {
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    gap: 15px;
 }
 
 
@@ -29,6 +28,7 @@
 @media (min-width: 375px) {
 
     .avatar-box img {
+        min-width: 80px;
         width: 80px;
         height: 80px;
     }
@@ -36,7 +36,7 @@
 
 @media (min-width: 580px) {
     .sidebar-info {
-        gap: 25px;
+        gap: 5px;
     }
 
 
