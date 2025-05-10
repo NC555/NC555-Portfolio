@@ -1,4 +1,4 @@
-import React from "react";
+import React, { cloneElement } from "react"; // Import cloneElement
 import CodeHeader from "@/components/home/code-header";
 import Globe from "@/components/home/globe";
 import GitHubCalendar from "react-github-calendar";
@@ -12,7 +12,7 @@ import "@/styles/about/coding-stats.css";
 
 interface TechStack {
   name: string;
-  icon: VCardIconType;
+  icon: React.JSX.Element; // Use React.JSX.Element
 }
 
 interface TechStacks {
@@ -83,20 +83,24 @@ function CodingStats({
                 <h2 className="text-sm font-light">Stacks</h2>
               </div>
               <Marquee gap="20px" className="py-2" fade pauseOnHover>
-                {techStacks.programmingLanguages.map((stack) => (
-                  <stack.icon
-                    key={stack.name}
-                    className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
-                  />
-                ))}
+                {techStacks.programmingLanguages.map((stack) =>
+                  // stack.icon is now a JSX.Element. We need to clone it to add props.
+                  // The key here is for React's list rendering.
+                  cloneElement(stack.icon, {
+                    key: stack.name,
+                    className:
+                      "size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola",
+                  })
+                )}
               </Marquee>
               <Marquee gap="20px" className="py-2" reverse fade pauseOnHover>
-                {techStacks.frameworks.map((stack) => (
-                  <stack.icon
-                    key={stack.name}
-                    className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
-                  />
-                ))}
+                {techStacks.frameworks.map((stack) =>
+                  cloneElement(stack.icon, {
+                    key: stack.name,
+                    className:
+                      "size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola",
+                  })
+                )}
               </Marquee>
             </div>
           </li>

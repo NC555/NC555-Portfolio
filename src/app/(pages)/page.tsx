@@ -1,3 +1,4 @@
+import React from "react"; // Import React for React.createElement
 import HomePageContent from "@/components/HomePageContent";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { getAllPosts } from "@/config/api";
@@ -119,7 +120,8 @@ const mapIcons = (data: any) => {
         typeof data[key] === "string" &&
         iconMap[data[key]]
       ) {
-        newData[key] = iconMap[data[key]];
+        // Create a React element from the icon component
+        newData[key] = React.createElement(iconMap[data[key]]);
       } else {
         newData[key] = mapIcons(data[key]);
       }

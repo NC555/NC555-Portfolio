@@ -3,16 +3,18 @@
 import type { VCardIconType } from "@/types/config";
 
 // Interface for HomePageContent component props
+import type React from "react"; // Ensure React is in scope for React.JSX.Element
+
 // Transformed types where icon strings are replaced by components
 export interface TransformedLifeStyle {
-  icon: VCardIconType; // Or React.ElementType, or 'any' to match ServiceItem
+  icon: React.JSX.Element;
   title: string;
   text: string;
 }
 
 export interface TransformedTechStack {
   name: string;
-  icon: VCardIconType; // Or React.ElementType
+  icon: React.JSX.Element;
 }
 
 export interface TransformedTechStacks {
