@@ -1,13 +1,14 @@
 import HomePageContent from "@/components/HomePageContent";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { getAllPosts } from "@/config/api";
-import { LatestArticles } from "@/components/home/latest-articles";
+// import { LatestArticles } from "@/components/home/latest-articles"; // No longer needed here
 import homeConfig from "@/data/homeConfig.json";
 
-import markdownStyles from "@/styles/markdown-styles.module.css";
+// It's better to keep styles for specific components within those components or in a global stylesheet if truly global
+// import markdownStyles from "@/styles/markdown-styles.module.css";
 
 import { LuGithub, LuPencil } from "react-icons/lu";
-import { TbPhotoSquareRounded } from "react-icons/tb";
+import { TbPhotoSquareRounded, TbBrandOpenai } from "react-icons/tb"; // Added TbBrandOpenai
 import { AiOutlinePython } from "react-icons/ai";
 import {
   TbBrandTypescript,
@@ -20,15 +21,38 @@ import {
   TbBrandDocker,
   TbBrandMysql,
   TbBrandDjango,
+  TbBrandLaravel, // Added TbBrandLaravel
 } from "react-icons/tb";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
-import { FaReact, FaAws } from "react-icons/fa";
+import {
+  SiLatex,
+  SiFastapi,
+  SiKubernetes,
+  SiPostman,
+  SiNginx, // Added SiNginx
+  SiJira, // Added SiJira
+  SiPhp, // Added SiPhp
+  SiLumen, // Added SiLumen
+  SiConfluence, // Added SiConfluence
+  SiSlack, // Added SiSlack
+  SiN8N, // Added SiN8N
+  SiGitlab, // Added SiGitlab
+  SiJavascript, // Added SiJavascript
+} from "react-icons/si";
+import { FaReact, FaAws, FaNode, FaCpanel } from "react-icons/fa"; // Added FaNode, FaCpanel
 import { BiLogoFlask } from "react-icons/bi";
-import { DiRedis } from "react-icons/di";
-import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
+import {
+  DiRedis,
+  DiLinux, // Added DiLinux
+  DiUbuntu, // Added DiUbuntu
+  DiMongodb, // Added DiMongodb
+  DiAngularSimple, // Added DiAngularSimple
+} from "react-icons/di";
+import { VscTerminalLinux, VscAzure, VscVscode } from "react-icons/vsc"; // Added VscVscode
 import { MdOutlineSecurity, MdCloud } from "react-icons/md";
+import { GrTurbolinux } from "react-icons/gr"; // Added GrTurbolinux
 
+// Centralized icon map, ensure all icons used in homeConfig.json are here
 const iconMap: { [key: string]: any } = {
   LuGithub,
   LuPencil,
@@ -58,9 +82,28 @@ const iconMap: { [key: string]: any } = {
   VscAzure,
   MdOutlineSecurity,
   MdCloud,
+  TbBrandOpenai,
+  GrTurbolinux,
+  SiNginx,
+  DiLinux,
+  DiUbuntu,
+  FaCpanel,
+  DiAngularSimple,
+  SiJavascript,
+  SiPhp,
+  TbBrandLaravel,
+  SiLumen,
+  FaNode,
+  DiMongodb,
+  SiN8N,
+  VscVscode,
+  SiJira,
+  SiConfluence,
+  SiSlack,
+  SiGitlab,
 };
 
-// Function to map icon names to imported components (Keep at top level)
+// Function to map icon names to imported components
 const mapIcons = (data: any) => {
   if (!data) return data;
 
@@ -87,49 +130,96 @@ const mapIcons = (data: any) => {
   return data;
 };
 
-async function About() {
-  // Move data processing inside the component
+// Helper to process introduction string (can be expanded if needed)
+async function processIntroduction(introduction: string): Promise<string> {
+  if (!introduction) return "";
+  // Current logic in HomePageContent.tsx for splitting HTML and Markdown is complex.
+  // For simplicity, assuming `introduction` is primarily markdown or simple text.
+  // If it contains intentional HTML mixed with markdown, this needs careful handling.
+  // The original logic: if (trimmedIntro.startsWith("<"))
+  // For now, we will treat the whole string as markdown.
+  // If it needs to be more complex, this function should replicate that logic.
+  const trimmedIntro = introduction.trim();
+  let htmlPart = "";
+  let textPart = trimmedIntro;
+
+  if (trimmedIntro.startsWith("<")) {
+    const lastClosingTagIndex = trimmedIntro.lastIndexOf(">");
+    if (lastClosingTagIndex !== -1) {
+      htmlPart = trimmedIntro.substring(0, lastClosingTagIndex + 1);
+      textPart = trimmedIntro.substring(lastClosingTagIndex + 1).trim();
+    }
+  }
+
+  let processedTextPart = "";
+  if (textPart) {
+    if (textPart.match(/[#*`-]/) || !textPart.startsWith("<p>")) {
+      // Process if markdown or not already <p>
+      processedTextPart = await markdownToHtml(textPart);
+    } else {
+      processedTextPart = textPart; // Assume it's already HTML if it starts with <p>
+    }
+  }
+  return (
+    htmlPart +
+    (processedTextPart ? (htmlPart ? " " : "") + processedTextPart : "")
+  );
+}
+
+async function AboutPage() {
   const { about } = homeConfig;
   const {
     header,
-    slogan,
+    // slogan, // slogan is not directly used by HomePageContent props
     introduction,
-    lifestyles, // Use directly from config
-    techStacks, // Use directly from config
+    lifestyles,
+    techStacks: rawTechStacksConfig, // Renamed to avoid confusion
     githubUsername,
     introductionHeaderText,
     globe,
     lifestyleHeaderText,
-    techStackHeaderText,
+    techStackHeaderText, // This is the header text for the tech stacks section
   } = about;
 
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts(); // For <LatestArticles />, currently disabled in HomePageContent
 
-  // Use the 'header' destructured from homeConfig (now inner scope)
-  const pageTitle = header ? `${header}` : `Home`;
+  const pageTitle = header || "Home";
 
-  // Construct the techStacks prop object correctly
+  // Process introduction markdown to HTML
+  const introductionHtml = await processIntroduction(introduction || "");
+
+  // Transform lifestyles and techStacks with icons
+  const transformedLifestyles = mapIcons(lifestyles);
+  // mapIcons is applied to the object containing programmingLanguages and frameworks arrays
+  const transformedTechStacksArrays = mapIcons(rawTechStacksConfig);
+
+  // Construct the techStacks prop object correctly according to RawTechStacks type
   const techStacksProp = {
-    ...techStacks, // Spread languages and frameworks from config
-    techStackHeaderText: techStackHeaderText, // Add the required header text
+    // Ensure transformedTechStacksArrays has the expected structure after mapIcons
+    programmingLanguages: (transformedTechStacksArrays as any)
+      .programmingLanguages,
+    frameworks: (transformedTechStacksArrays as any).frameworks,
+    techStackHeaderText: techStackHeaderText, // Add the header text from homeConfig.about
   };
 
-  // Pass the untransformed data from config, ensuring correct structure
   return (
     <HomePageContent
       header={pageTitle}
-      introduction={introduction || ""}
+      introductionHtml={introductionHtml} // Pass processed HTML
       introductionHeaderText={introductionHeaderText || ""}
       posts={allPosts}
-      techStacks={techStacksProp}
+      techStacks={techStacksProp} // This should now match RawTechStacks (with transformed icons)
+      // techStackHeaderText is now part of the techStacksProp, so this separate prop might be redundant
+      // depending on how HomePageContent uses it. For now, let's keep it if HomePageContent expects it.
+      // If HomePageContent is updated to use techStacks.techStackHeaderText, this can be removed.
       techStackHeaderText={techStackHeaderText}
       githubUsername={githubUsername}
       globe={
         globe as { markerLocation: [number, number]; locationString: string }
       }
       lifestyleHeaderText={lifestyleHeaderText || ""}
-      lifestyles={lifestyles}
+      lifestyles={transformedLifestyles} // Pass transformed lifestyles
     />
   );
 }
-export default About;
+export default AboutPage;

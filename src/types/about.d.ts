@@ -3,16 +3,34 @@
 import type { VCardIconType } from "@/types/config";
 
 // Interface for HomePageContent component props
+// Transformed types where icon strings are replaced by components
+export interface TransformedLifeStyle {
+  icon: VCardIconType; // Or React.ElementType, or 'any' to match ServiceItem
+  title: string;
+  text: string;
+}
+
+export interface TransformedTechStack {
+  name: string;
+  icon: VCardIconType; // Or React.ElementType
+}
+
+export interface TransformedTechStacks {
+  techStackHeaderText: string;
+  programmingLanguages: TransformedTechStack[];
+  frameworks: TransformedTechStack[];
+}
+
 export interface HomePageContentProps {
   header: string;
-  introduction: string;
+  introductionHtml: string; // Changed from introduction
   introductionHeaderText: string;
-  lifestyles: RawLifeStyle[];
-  techStacks: RawTechStacks;
+  lifestyles: TransformedLifeStyle[]; // Use transformed type
+  techStacks: TransformedTechStacks; // Use transformed type
   githubUsername: string;
   globe: GlobeConfig;
   lifestyleHeaderText: string;
-  techStackHeaderText: string;
+  techStackHeaderText: string; // This is used by HomePageContent directly for CodingStats, even if redundant
   posts?: any[];
 }
 

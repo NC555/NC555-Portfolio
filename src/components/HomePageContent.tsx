@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react"; // Removed useEffect, useState
 import PageHeader from "@/components/page-header";
 import CodeHeader from "@/components/home/code-header";
 import LifeStyles from "@/components/home/life-styles";
 import CodingStats from "@/components/home/coding-stats";
 import AnimatedSection from "@/components/animated-section";
-import markdownToHtml from "@/lib/markdownToHtml";
+// import markdownToHtml from "@/lib/markdownToHtml"; // No longer needed here
 import { cn } from "@/lib/utils";
 import markdownStyles from "@/styles/markdown-styles.module.css";
-import { LatestArticles } from "@/components/home/latest-articles";
+import { LatestArticles } from "@/components/home/latest-articles"; // Keep for {false && <LatestArticles ...>}
+// Icons are no longer mapped here, so direct imports are not strictly necessary unless used elsewhere in this file.
+// For simplicity, keeping them, but they could be removed if not used by other logic in this file.
+/*
 import { LuGithub, LuPencil } from "react-icons/lu";
 import { TbPhotoSquareRounded, TbBrandOpenai } from "react-icons/tb";
 import { AiOutlinePython } from "react-icons/ai";
@@ -53,146 +56,26 @@ import {
 } from "react-icons/di";
 import { VscTerminalLinux, VscAzure, VscVscode } from "react-icons/vsc";
 import { MdOutlineSecurity, MdCloud } from "react-icons/md";
-import { HomePageContentProps } from "@/types/about";
 import { GrTurbolinux } from "react-icons/gr";
+*/
+import { HomePageContentProps } from "@/types/about";
 
-const iconMap: { [key: string]: any } = {
-  LuPencil,
-  TbPhotoSquareRounded,
-  AiOutlinePython,
-  TbBrandGolang,
-  TbBrandCpp,
-  RiJavaLine,
-  RiJavascriptLine,
-  SiLatex,
-  TbBrandAstro,
-  TbBrandTerraform,
-  SiFastapi,
-  BiLogoFlask,
-  VscTerminalLinux,
-  TbBrandDjango,
-  SiKubernetes,
-  VscAzure,
-  FaAws,
-  SiNginx,
-  DiLinux,
-  DiUbuntu,
-  TbBrandDocker,
-  FaCpanel,
-  TbBrandTypescript,
-  TbBrandNextjs,
-  DiAngularSimple,
-  FaReact,
-  SiJavascript,
-  SiPhp,
-  TbBrandLaravel,
-  SiLumen,
-  FaNode,
-  DiMongodb,
-  TbBrandMysql,
-  DiRedis,
-  SiN8N,
-  VscVscode,
-  SiPostman,
-  SiJira,
-  SiConfluence,
-  SiSlack,
-  TbMarkdown,
-  LuGithub,
-  SiGitlab,
-  MdOutlineSecurity,
-  MdCloud,
-  TbBrandOpenai,
-  GrTurbolinux,
-};
-
-// Function to map icon names to imported components
-const mapIcons = (data: any) => {
-  if (!data) return data;
-
-  if (Array.isArray(data)) {
-    return data.map((item) => mapIcons(item));
-  }
-
-  if (typeof data === "object" && data !== null) {
-    const newData: any = {};
-    for (const key in data) {
-      if (
-        key === "icon" &&
-        typeof data[key] === "string" &&
-        iconMap[data[key]]
-      ) {
-        newData[key] = iconMap[data[key]];
-      } else {
-        newData[key] = mapIcons(data[key]);
-      }
-    }
-    return newData;
-  }
-
-  return data;
-};
+// iconMap and mapIcons function are removed as data comes pre-transformed.
 
 const HomePageContent: React.FC<HomePageContentProps> = ({
   header,
-  introduction,
+  introductionHtml, // Changed from introduction
   introductionHeaderText,
-  lifestyles,
-  techStacks,
+  lifestyles, // Now expects pre-transformed data (icons are components)
+  techStacks, // Now expects pre-transformed data (icons are components)
   githubUsername,
   globe,
   lifestyleHeaderText,
-  techStackHeaderText,
+  techStackHeaderText, // This prop might be deprecated in favor of techStacks.techStackHeaderText
   posts = [],
 }) => {
-  // Transform data to use imported icon components
-  const transformedLifestyles = mapIcons(lifestyles);
-  const transformedTechStacks = mapIcons(techStacks);
-  const [content, setContent] = useState<string>("");
-
-  useEffect(() => {
-    const renderContent = async () => {
-      if (introduction) {
-        // Split content into parts: HTML (if starts with <...>) and the rest as text/markdown
-        const trimmedIntro = introduction.trim();
-        let htmlPart = "";
-        let textPart = trimmedIntro;
-
-        // Check if content starts with HTML-like structure
-        if (trimmedIntro.startsWith("<")) {
-          // Find the last closing tag to split HTML and text
-          const lastClosingTagIndex = trimmedIntro.lastIndexOf(">");
-          if (lastClosingTagIndex !== -1) {
-            htmlPart = trimmedIntro.substring(0, lastClosingTagIndex + 1);
-            textPart = trimmedIntro.substring(lastClosingTagIndex + 1).trim();
-          }
-        }
-
-        // Process text part as markdown or wrap in paragraph if plain text
-        let processedTextPart = "";
-        if (textPart) {
-          // If text part contains markdown syntax, process it as markdown
-          if (textPart.match(/[#*`-]/)) {
-            processedTextPart = await markdownToHtml(textPart);
-          } else {
-            // Otherwise, wrap plain text in paragraph tags
-            processedTextPart = `<p>${textPart.replace(
-              /\n\n/g,
-              "</p><p>"
-            )}</p>`;
-          }
-        }
-
-        // Combine HTML and processed text parts
-        setContent(
-          htmlPart + (processedTextPart ? " " + processedTextPart : "")
-        );
-      } else {
-        setContent("");
-      }
-    };
-    renderContent();
-  }, [introduction]);
+  // No more useEffect or useState for content processing
+  // No more client-side mapIcons transformation
 
   return (
     <article>
@@ -203,21 +86,26 @@ const HomePageContent: React.FC<HomePageContentProps> = ({
         <CodeHeader id="introduction" text={introductionHeaderText || ""} />
         <div
           className={cn(markdownStyles["markdown"])}
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: introductionHtml }} // Use introductionHtml directly
         />
       </AnimatedSection>
-      {false && <LatestArticles posts={posts} />}
-      {transformedTechStacks && (
+      {false && <LatestArticles posts={posts} />} {/* Keep this line as is */}
+      {techStacks && (
         <CodingStats
-          techStackHeaderText={techStackHeaderText}
-          techStacks={transformedTechStacks}
+          // techStackHeaderText is now part of the techStacks object.
+          // CodingStats component will need to be updated if it's not already using techStacks.techStackHeaderText
+          // For now, we pass techStacks.techStackHeaderText if available, or the separate prop as fallback.
+          techStackHeaderText={
+            techStacks.techStackHeaderText || techStackHeaderText
+          }
+          techStacks={techStacks} // Pass the pre-transformed techStacks
           githubUsername={githubUsername}
           globe={globe}
         />
       )}
-      {transformedLifestyles && (
+      {lifestyles && (
         <LifeStyles
-          lifestyles={transformedLifestyles}
+          lifestyles={lifestyles} // Pass the pre-transformed lifestyles
           headerText={lifestyleHeaderText || ""}
         />
       )}
