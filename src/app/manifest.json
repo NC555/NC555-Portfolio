@@ -1,22 +1,22 @@
 {
-  "name": "Nati Cabtihttps:// | Open Source Enthusiast",
+  "name": "Nati Cabti Blog",
   "short_name": "digital-hero.com",
   "categories": ["web technologies", "portfolio", "blog", "personal"],
-  "description": "I'm am Nati Cabti",
+  "description": "Tech. Blog & Portfolio",
   "start_url": "/",
   "display": "standalone",
   "lang": "en-US",
-  "background_color": "#fff",
-  "theme_color": "#fff",
+  "background_color": "#000",
+  "theme_color": "#000",
   "icons": [
     {
-      "src": "/favicon-96x96.png",
+      "src": "/favicon-36x36.png",
       "sizes": "any",
       "type": "image/x-icon",
       "purpose": "any"
     },
     {
-      "src": "/favicon-96x96.png",
+      "src": "/favicon-64x64.png",
       "sizes": "any",
       "type": "image/x-icon",
       "purpose": "maskable"
