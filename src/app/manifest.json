@@ -1,31 +1,35 @@
 {
-  "name": "Nati Cabti Blog",
-  "short_name": "digital-hero.com",
+  "name": "Nati Blog",
+  "short_name": "Nati Blog",
   "categories": ["web technologies", "portfolio", "blog", "personal"],
   "description": "Tech. Blog & Portfolio",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "lang": "en-US",
   "background_color": "#000",
   "theme_color": "#000",
+  "display_override": ["window-controls-overlay"],
   "icons": [
     {
       "src": "/favicon-36x36.png",
-      "sizes": "any",
-      "type": "image/x-icon",
-      "purpose": "any"
+      "sizes": "36x36",
+      "type": "image/x-icon"
     },
     {
       "src": "/favicon-64x64.png",
-      "sizes": "any",
-      "type": "image/x-icon",
-      "purpose": "maskable"
+      "sizes": "64x64",
+      "type": "image/x-icon"
     },
     {
       "src": "/favicon-96x96.png",
-      "sizes": "any",
-      "type": "image/x-icon",
-      "purpose": "monochrome"
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo256.png",
+      "sizes": "256x256",
+      "type": "image/png"
     }
   ]
 }
