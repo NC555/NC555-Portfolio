@@ -99,11 +99,11 @@ For better compatibility and ease of use, it's recommended to edit content throu
 
 - **Main Admin Panel**: [/admin](http://nati.nc555.online/admin)
 - **Home Page Editor**: [/admin/home-editor](http://nati.nc555.online/admin/home-editor)
-- **Sidebar Editor**: [/admin/sidebar-editor](http://localhost:3000/admin/sidebar-editor)
-- **Resume Editor**: [/admin/resume-editor](http://localhost:3000/admin/resume-editor)
-- **Blog Management**: [/admin/blog](http://localhost:3000/admin/blog)
-- **Portfolio Management**: [/admin/portfolio](http://localhost:3000/admin/portfolio)
-- **Gallery Editor**: [/admin/gallery-editor](http://localhost:3000/admin/gallery-editor)
+- **Sidebar Editor**: [/admin/sidebar-editor](http://nati.nc555.online/admin/sidebar-editor)
+- **Resume Editor**: [/admin/resume-editor](http://nati.nc555.online/admin/resume-editor)
+- **Blog Management**: [/admin/blog](http://nati.nc555.online/admin/blog)
+- **Portfolio Management**: [/admin/portfolio](http://nati.nc555.online/admin/portfolio)
+- **Gallery Editor**: [/admin/gallery-editor](http://nati.nc555.online/admin/gallery-editor)
 
 ## 🔄 Deployment
 
