@@ -4,7 +4,7 @@
 
 A modern, responsive portfolio website built with cutting-edge web technologies that makes content management effortless through an intuitive visual editor.
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-blue?style=for-the-badge&logo=vercel)](https://nc555.online/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-blue?style=for-the-badge&logo=vercel)](https://nati.nc555.online/)
 [![GitHub Stars](https://img.shields.io/github/stars/NC555/NC55-Portfolio?style=for-the-badge&logo=github)](https://github.com/NC555/NC555-Portfolio)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/NC555/NC555-Portfolio/LICENSE)
 
@@ -97,8 +97,8 @@ You can customize the portfolio by editing the configuration files in the `src/d
 
 For better compatibility and ease of use, it's recommended to edit content through the admin interface:
 
-- **Main Admin Panel**: [/admin](http://localhost:3000/admin)
-- **Home Page Editor**: [/admin/home-editor](http://localhost:3000/admin/home-editor)
+- **Main Admin Panel**: [/admin](http://nati.nc555.online/admin)
+- **Home Page Editor**: [/admin/home-editor](http://nati.nc555.online/admin/home-editor)
 - **Sidebar Editor**: [/admin/sidebar-editor](http://localhost:3000/admin/sidebar-editor)
 - **Resume Editor**: [/admin/resume-editor](http://localhost:3000/admin/resume-editor)
 - **Blog Management**: [/admin/blog](http://localhost:3000/admin/blog)
