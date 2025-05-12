@@ -1,5 +1,5 @@
 {
-  "siteURL": "https://nc555.online/",
+  "siteURL": "https://nati.nc555.online/",
   "favicons": {
     "main": "/favicon-96x96.png",
     "admin": "/favicon-32x32.png"
@@ -18,9 +18,9 @@
   "description": "",
   "author": "Nati Cabti",
   "keywords": ["Nati Cabti", "Portfolio", "Vibe Coding", "Next.js", "Tina CMS"],
-  "status": "Building until Scale is an Issue 🚀",
+  "status": "",
   "openGraph": {
-    "url": "https://nc555.online/",
+    "url": "https://nati.nc555.online/",
     "type": "website",
     "siteName": "Nati Cabti - CTO Portfolio",
     "title": "Nati Cabti - CTO Portfolio",
@@ -100,7 +100,7 @@
   "jsonLdPerson": {
     "@context": "http://schema.org",
     "@type": "Person",
-    "@id": "https://nc555.online",
+    "@id": "https://nati.nc555.online",
     "givenName": "",
     "familyName": "",
     "additionalName": "",
@@ -116,30 +116,30 @@
     ],
     "jobTitle": "Chief Technology Officer",
     "skills": "I'm a technology leader with extensive experience architecting enterprise SaaS platforms and orchestrating distributed development teams across multiple domains. Passionate about transforming complex technical concepts into tangible business outcomes through strategic roadmapping and innovative solutions.",
-    "image": "https://nc555.online/images/profile.webp",
-    "url": "https://nc555.online/",
+    "image": "https://nati.nc555.online/images/profile.webp",
+    "url": "https://nati.nc555.online/",
     "sameAs": [
-      "https://www.linkedin.com/in/NC555/",
+      "https://www.linkedin.com/in/nati-cabti/",
       "http://github.com/NC555",
-      "https://medium.com/@NC555"
+      "https://nati.nc555.online"
     ]
   },
   "homeMetaData": {
-    "metadataBase": "https://nc555.online/",
+    "metadataBase": "https://nati.nc555.online/",
     "title": "Nati Cabti | CTO",
     "description": "",
     "authors": [{ "name": "" }],
     "creator": "",
     "keywords": ["NC555", "Software Engineering", "Next.js", "React"],
     "openGraph": {
-      "url": "https://nc555.online/",
+      "url": "https://nati.nc555.online/",
       "type": "website",
       "siteName": "Nati Cabti - CTO Portfolio",
       "title": "Nati Cabti - CTO Portfolio",
       "description": "",
       "images": [
         {
-          "url": "https://nc555.online/nc555-portfolio-template.png",
+          "url": "https://nati.nc555.online/nc555-portfolio-template.png",
           "alt": "Nati Cabti - Digitial Hero Cover Image"
         }
       ]
@@ -149,7 +149,7 @@
       "card": "summary_large_image",
       "title": "Nati Cabti - CTO Portfolio",
       "description": "",
-      "images": "https://nc555.online/nc555-portfolio-template.png"
+      "images": "https://nati.nc555.online/nc555-portfolio-template.png"
     },
     "icons": {
       "icon": "/favicon-96x96.png",

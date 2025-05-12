@@ -9,4 +9,4 @@ export const breakpoints: Breakpoint[] = [
 export const EXAMPLE_PATH = "blog-starter";
 export const GALLERY_PATH = "uploads/gallery";
 export const CMS_NAME = "Markdown";
-export const HOME_OG_IMAGE_URL = "https://nc555.online/images/NC555.png";
+export const HOME_OG_IMAGE_URL = "https://nati.nc555.online/images/NC555.png";

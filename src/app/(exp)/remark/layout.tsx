@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: title,
     description: description,
-    images: "https://nc555.online/images/NC555.png",
+    images: "https://nati.nc555.online/images/NC555.png",
   },
   icons: {
     icon: "/favicon-96x96.png",
@@ -85,7 +85,7 @@ const addJsonLd = () => {
       ],
       "jobTitle": "Software Engineer",
       "skills": "Software Engineering, Web Development, Open Source",
-      "image": "https://nc555.online/images/profile.webp",
+      "image": "https://nati.nc555.online/images/profile.webp",
       "url": "${siteURL}",
       "sameAs": [
         "https://www.linkedin.com/in/NC555/",

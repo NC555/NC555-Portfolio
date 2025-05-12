@@ -83,7 +83,7 @@ async function BlogPosts({
                   loading="eager"
                   priority
                   placeholder="blur"
-                  blurDataURL="https://nc555.online/images/NC555.png"
+                  blurDataURL="https://nati.nc555.online/images/NC555.png"
                 />
               </figure>
               <div className="blog-content">

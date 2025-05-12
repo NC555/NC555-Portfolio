@@ -12,7 +12,7 @@ const config: Config = {
     { keyword: "Next.js" },
     { keyword: "React" },
   ],
-  baseURL: "https://nc555.online/",
+  baseURL: "https://nati.nc555.online/",
   postsPerPage: 10,
   twitterAccount: "@your_twitter_account",
   githubAccount: "your_github_account",
