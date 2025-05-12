@@ -86,24 +86,24 @@ You can customize the portfolio by editing the configuration files in the `src/d
 
 | File                          | Description                    | Admin Page                                                          |
 | ----------------------------- | ------------------------------ | ------------------------------------------------------------------- |
-| `src/data/homeConfig.json`    | Home page content and settings | [/admin/home-editor](http://localhost:3000/admin/home-editor)       |
-| `src/data/sidebarConfig.json` | Sidebar information and links  | [/admin/sidebar-editor](http://localhost:3000/admin/sidebar-editor) |
-| `src/data/resumeConfig.json`  | Resume/CV page content         | [/admin/resume-editor](http://localhost:3000/admin/resume-editor)   |
-| `src/data/blogConfig.json`    | Blog settings                  | [/admin/blog](http://localhost:3000/admin/blog)                     |
-| `src/data/galleryConfig.json` | Gallery settings               | [/admin/gallery-editor](http://localhost:3000/admin/gallery-editor) |
+| `src/data/homeConfig.json`    | Home page content and settings | [/admin/home-editor](http://nati.nc555.online/admin/home-editor)       |
+| `src/data/sidebarConfig.json` | Sidebar information and links  | [/admin/sidebar-editor](http://nati.nc555.online/admin/sidebar-editor) |
+| `src/data/resumeConfig.json`  | Resume/CV page content         | [/admin/resume-editor](http://nati.nc555.online/admin/resume-editor)   |
+| `src/data/blogConfig.json`    | Blog settings                  | [/admin/blog](http://nati.nc555.online/admin/blog)                     |
+| `src/data/galleryConfig.json` | Gallery settings               | [/admin/gallery-editor](http://nati.nc555.online/admin/gallery-editor) |
 | `src/data/appConfig.json`     | Global application settings    | -                                                                   |
 
 ###
 
 For better compatibility and ease of use, it's recommended to edit content through the admin interface:
 
-- **Main Admin Panel**: [/admin](http://localhost:3000/admin)
-- **Home Page Editor**: [/admin/home-editor](http://localhost:3000/admin/home-editor)
-- **Sidebar Editor**: [/admin/sidebar-editor](http://localhost:3000/admin/sidebar-editor)
-- **Resume Editor**: [/admin/resume-editor](http://localhost:3000/admin/resume-editor)
-- **Blog Management**: [/admin/blog](http://localhost:3000/admin/blog)
-- **Portfolio Management**: [/admin/portfolio](http://localhost:3000/admin/portfolio)
-- **Gallery Editor**: [/admin/gallery-editor](http://localhost:3000/admin/gallery-editor)
+- **Main Admin Panel**: [/admin](http://nati.nc555.online/admin)
+- **Home Page Editor**: [/admin/home-editor](http://nati.nc555.online/admin/home-editor)
+- **Sidebar Editor**: [/admin/sidebar-editor](http://nati.nc555.online/admin/sidebar-editor)
+- **Resume Editor**: [/admin/resume-editor](http://nati.nc555.online/admin/resume-editor)
+- **Blog Management**: [/admin/blog](http://nati.nc555.online/admin/blog)
+- **Portfolio Management**: [/admin/portfolio](http://nati.nc555.online/admin/portfolio)
+- **Gallery Editor**: [/admin/gallery-editor](http://nati.nc555.online/admin/gallery-editor)
 
 ## 🔄 Deployment
 
