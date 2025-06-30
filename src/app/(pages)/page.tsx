@@ -1,7 +1,6 @@
 import React from "react"; // Import React for React.createElement
 import HomePageContent from "@/components/HomePageContent";
 import markdownToHtml from "@/lib/markdownToHtml";
-import { getAllPosts } from "@/config/api";
 // import { LatestArticles } from "@/components/home/latest-articles"; // No longer needed here
 import homeConfig from "@/data/homeConfig.json";
 
@@ -134,38 +133,10 @@ const mapIcons = (data: any) => {
 
 // Helper to process introduction string (can be expanded if needed)
 async function processIntroduction(introduction: string): Promise<string> {
-  if (!introduction) return "";
-  // Current logic in HomePageContent.tsx for splitting HTML and Markdown is complex.
-  // For simplicity, assuming `introduction` is primarily markdown or simple text.
-  // If it contains intentional HTML mixed with markdown, this needs careful handling.
-  // The original logic: if (trimmedIntro.startsWith("<"))
-  // For now, we will treat the whole string as markdown.
-  // If it needs to be more complex, this function should replicate that logic.
-  const trimmedIntro = introduction.trim();
-  let htmlPart = "";
-  let textPart = trimmedIntro;
-
-  if (trimmedIntro.startsWith("<")) {
-    const lastClosingTagIndex = trimmedIntro.lastIndexOf(">");
-    if (lastClosingTagIndex !== -1) {
-      htmlPart = trimmedIntro.substring(0, lastClosingTagIndex + 1);
-      textPart = trimmedIntro.substring(lastClosingTagIndex + 1).trim();
-    }
+  if (!introduction) {
+    return "";
   }
-
-  let processedTextPart = "";
-  if (textPart) {
-    if (textPart.match(/[#*`-]/) || !textPart.startsWith("<p>")) {
-      // Process if markdown or not already <p>
-      processedTextPart = await markdownToHtml(textPart);
-    } else {
-      processedTextPart = textPart; // Assume it's already HTML if it starts with <p>
-    }
-  }
-  return (
-    htmlPart +
-    (processedTextPart ? (htmlPart ? " " : "") + processedTextPart : "")
-  );
+  return await markdownToHtml(introduction);
 }
 
 async function AboutPage() {
@@ -183,7 +154,7 @@ async function AboutPage() {
     techStackHeaderText, // This is the header text for the tech stacks section
   } = about;
 
-  const allPosts = getAllPosts(); // For <LatestArticles />, currently disabled in HomePageContent
+  const allPosts = []; // No longer fetching posts as LatestArticles is commented out
 
   const pageTitle = header || "Home";
 
