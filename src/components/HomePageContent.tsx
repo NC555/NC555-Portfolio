@@ -8,16 +8,10 @@ import {
   HomePageContentProps,
   TransformedLifeStyle,
   TransformedTechStacks,
-  RawLifeStyle,
-  RawTechStack,
 } from "@/types/about";
 
-// Lazy loaded components
-const PageHeader = lazy(() => import("@/components/page-header"));
-const CodeHeader = lazy(() => import("@/components/home/code-header"));
-const LifeStyles = lazy(() => import("@/components/home/life-styles"));
-const CodingStats = lazy(() => import("@/components/home/coding-stats"));
-const AnimatedSection = lazy(() => import("@/components/animated-section"));
+// Import the new generic loading spinner
+import GenericLoadingSpinner from "@/components/generic-loading-spinner";
 
 // All icon imports for client-side mapping
 import { LuGithub, LuPencil } from "react-icons/lu";
@@ -176,41 +170,49 @@ const HomePageContent: React.FC<HomePageContentProps> = memo(
       });
     }, [rawLifestyles, rawTechStacks]);
 
+    // Lazy loaded components for the main content sections
+    const LazyPageHeader = lazy(() => import("@/components/page-header"));
+    const LazyCodeHeader = lazy(() => import("@/components/home/code-header"));
+    const LazyLifeStyles = lazy(() => import("@/components/home/life-styles"));
+    const LazyCodingStats = lazy(
+      () => import("@/components/home/coding-stats")
+    );
+    const LazyAnimatedSection = lazy(
+      () => import("@/components/animated-section")
+    );
+
     return (
       <article>
-        <Suspense fallback={<div>Loading...</div>}>
-          <AnimatedSection id="about">
-            <PageHeader header={header} />
-          </AnimatedSection>
-        </Suspense>
-        <Suspense fallback={<div>Loading...</div>}>
-          <AnimatedSection>
-            <CodeHeader id="introduction" text={introductionHeaderText || ""} />
+        <Suspense fallback={<GenericLoadingSpinner />}>
+          <LazyAnimatedSection id="about">
+            <LazyPageHeader header={header} />
+          </LazyAnimatedSection>
+          <LazyAnimatedSection>
+            <LazyCodeHeader
+              id="introduction"
+              text={introductionHeaderText || ""}
+            />
             <div
               className={cn(markdownStyles["markdown"])}
               dangerouslySetInnerHTML={{ __html: introductionHtml }}
             />
-          </AnimatedSection>
-        </Suspense>
-        {false && <LatestArticles posts={posts} />}
-        {transformedTechStacks.programmingLanguages.length > 0 && (
-          <Suspense fallback={<div>Loading...</div>}>
-            <CodingStats
+          </LazyAnimatedSection>
+          {false && <LatestArticles posts={posts} />}
+          {transformedTechStacks.programmingLanguages.length > 0 && (
+            <LazyCodingStats
               techStackHeaderText={transformedTechStacks.techStackHeaderText}
               techStacks={transformedTechStacks}
               githubUsername={githubUsername}
               globe={globe}
             />
-          </Suspense>
-        )}
-        {transformedLifestyles.length > 0 && (
-          <Suspense fallback={<div>Loading...</div>}>
-            <LifeStyles
+          )}
+          {transformedLifestyles.length > 0 && (
+            <LazyLifeStyles
               lifestyles={transformedLifestyles}
               headerText={lifestyleHeaderText || ""}
             />
-          </Suspense>
-        )}
+          )}
+        </Suspense>
       </article>
     );
   }

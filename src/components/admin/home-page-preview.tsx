@@ -2,15 +2,7 @@
 
 import React, { useEffect, useState, useMemo } from "react";
 import HomePageContent from "@/components/HomePageContent";
-import {
-  InputAboutData,
-  RawLifeStyle,
-  RawTechStacks,
-  // GlobeConfig, // Used via InputAboutData
-  // TransformedLifeStyle, // No longer directly used for props
-  // TransformedTechStacks, // No longer directly used for props
-  // TransformedTechStack, // No longer directly used for props
-} from "@/types/about";
+import { InputAboutData, RawLifeStyle, RawTechStacks } from "@/types/about";
 import { getIconComponent } from "@/config/icon-utils";
 import markdownToHtml from "@/lib/markdownToHtml"; // For processing introduction
 
@@ -50,8 +42,8 @@ const HomePagePreview: React.FC<HomePagePreviewProps> = ({ aboutData }) => {
     githubUsername,
     lifestyleHeaderText,
     globe,
-    lifestyles, // Raw lifestyles from aboutData
-    techStacks, // Raw techStacks from aboutData
+    lifestyles,
+    techStacks,
   } = aboutData;
 
   const header =
