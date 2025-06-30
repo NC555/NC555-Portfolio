@@ -4,12 +4,12 @@ import React, { useEffect, useState, useMemo } from "react";
 import HomePageContent from "@/components/HomePageContent";
 import {
   InputAboutData,
-  // RawLifeStyle, // Not directly used for props anymore
-  // RawTechStacks, // Not directly used for props anymore
+  RawLifeStyle,
+  RawTechStacks,
   // GlobeConfig, // Used via InputAboutData
-  TransformedLifeStyle,
-  TransformedTechStacks,
-  TransformedTechStack,
+  // TransformedLifeStyle, // No longer directly used for props
+  // TransformedTechStacks, // No longer directly used for props
+  // TransformedTechStack, // No longer directly used for props
 } from "@/types/about";
 import { getIconComponent } from "@/config/icon-utils";
 import markdownToHtml from "@/lib/markdownToHtml"; // For processing introduction
@@ -19,19 +19,6 @@ interface HomePagePreviewProps {
   aboutData: InputAboutData | null;
 }
 
-// Local mapIcons utility
-const mapDataWithIcons = (data: any[], iconKey: string = "icon"): any[] => {
-  if (!data) return [];
-  return data.map((item) => {
-    const newItem = { ...item };
-    if (typeof newItem[iconKey] === "string") {
-      const IconComponent = getIconComponent(newItem[iconKey]);
-      newItem[iconKey] = React.createElement(IconComponent);
-    }
-    return newItem;
-  });
-};
-
 const HomePagePreview: React.FC<HomePagePreviewProps> = ({ aboutData }) => {
   const [introductionHtml, setIntroductionHtml] = useState("");
 
@@ -39,59 +26,14 @@ const HomePagePreview: React.FC<HomePagePreviewProps> = ({ aboutData }) => {
     if (aboutData?.introduction) {
       // This is similar to processIntroduction in page.tsx, adjusted for client-side
       const processIntro = async () => {
-        const trimmedIntro = aboutData.introduction.trim();
-        let htmlPart = "";
-        let textPart = trimmedIntro;
-
-        if (trimmedIntro.startsWith("<")) {
-          const lastClosingTagIndex = trimmedIntro.lastIndexOf(">");
-          if (lastClosingTagIndex !== -1) {
-            htmlPart = trimmedIntro.substring(0, lastClosingTagIndex + 1);
-            textPart = trimmedIntro.substring(lastClosingTagIndex + 1).trim();
-          }
-        }
-
-        let processedTextPart = "";
-        if (textPart) {
-          if (textPart.match(/[#*`-]/) || !textPart.startsWith("<p>")) {
-            processedTextPart = await markdownToHtml(textPart);
-          } else {
-            processedTextPart = textPart;
-          }
-        }
-        setIntroductionHtml(
-          htmlPart +
-            (processedTextPart ? (htmlPart ? " " : "") + processedTextPart : "")
-        );
+        // This is simplified to directly convert markdown to HTML, matching page.tsx
+        setIntroductionHtml(await markdownToHtml(aboutData.introduction));
       };
       processIntro();
     } else {
       setIntroductionHtml("");
     }
   }, [aboutData?.introduction]);
-
-  // Memoize transformed data to avoid re-computation on every render
-  const transformedLifestyles = useMemo(() => {
-    if (!aboutData?.lifestyles) return [];
-    return mapDataWithIcons(aboutData.lifestyles) as TransformedLifeStyle[];
-  }, [aboutData?.lifestyles]);
-
-  const transformedTechStacksProp = useMemo(():
-    | TransformedTechStacks
-    | undefined => {
-    if (!aboutData?.techStacks) return undefined;
-    const languages = mapDataWithIcons(
-      aboutData.techStacks.programmingLanguages
-    ) as TransformedTechStack[];
-    const frameworks = mapDataWithIcons(
-      aboutData.techStacks.frameworks
-    ) as TransformedTechStack[];
-    return {
-      programmingLanguages: languages,
-      frameworks: frameworks,
-      techStackHeaderText: aboutData.techStacks.techStackHeaderText || "",
-    };
-  }, [aboutData?.techStacks]);
 
   if (!aboutData) {
     return (
@@ -104,13 +46,12 @@ const HomePagePreview: React.FC<HomePagePreviewProps> = ({ aboutData }) => {
     lastName,
     preferredName,
     introductionHeaderText,
-    // introduction, // Handled by useEffect
-    techStackHeaderText, // Used if transformedTechStacksProp.techStackHeaderText is not preferred
-    // techStacks, // Handled by useMemo
+    techStackHeaderText,
     githubUsername,
     lifestyleHeaderText,
-    // lifestyles, // Handled by useMemo
     globe,
+    lifestyles, // Raw lifestyles from aboutData
+    techStacks, // Raw techStacks from aboutData
   } = aboutData;
 
   const header =
@@ -119,26 +60,17 @@ const HomePagePreview: React.FC<HomePagePreviewProps> = ({ aboutData }) => {
       ? `About ${preferredName}`
       : `About ${firstName} ${lastName}`);
 
-  if (!transformedTechStacksProp) {
-    // Or some placeholder, this case should ideally not happen if aboutData.techStacks is present
-    return (
-      <div className="p-4 text-center">Preparing tech stacks preview...</div>
-    );
-  }
-
   return (
     <div className="p-4 border rounded-lg bg-gray-50 overflow-auto relative">
       <HomePageContent
         header={header}
         introductionHtml={introductionHtml}
         introductionHeaderText={introductionHeaderText || ""}
-        techStackHeaderText={
-          techStackHeaderText || transformedTechStacksProp.techStackHeaderText
-        } // Provide fallback or specific one
-        techStacks={transformedTechStacksProp}
+        techStackHeaderText={techStackHeaderText}
+        techStacks={techStacks} // Pass raw techStacks
         githubUsername={githubUsername}
         lifestyleHeaderText={lifestyleHeaderText || ""}
-        lifestyles={transformedLifestyles}
+        lifestyles={lifestyles} // Pass raw lifestyles
         globe={globe}
         // posts prop is optional in HomePageContent
       />
