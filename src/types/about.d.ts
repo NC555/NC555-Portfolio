@@ -27,8 +27,8 @@ export interface HomePageContentProps {
   header: string;
   introductionHtml: string; // Changed from introduction
   introductionHeaderText: string;
-  lifestyles: TransformedLifeStyle[]; // Use transformed type
-  techStacks: TransformedTechStacks; // Use transformed type
+  lifestyles: RawLifeStyle[]; // Use raw type, icons are strings
+  techStacks: RawTechStacks; // Use raw type, icons are strings
   githubUsername: string;
   globe: GlobeConfig;
   lifestyleHeaderText: string;

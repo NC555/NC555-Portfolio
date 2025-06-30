@@ -1,34 +1,180 @@
 "use client";
 
-import React, { memo, lazy, Suspense } from "react";
+import React, { memo, lazy, Suspense, useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
+import markdownStyles from "@/styles/markdown-styles.module.css";
+import { LatestArticles } from "@/components/home/latest-articles";
+import {
+  HomePageContentProps,
+  TransformedLifeStyle,
+  TransformedTechStacks,
+  RawLifeStyle,
+  RawTechStack,
+} from "@/types/about";
+
+// Lazy loaded components
 const PageHeader = lazy(() => import("@/components/page-header"));
 const CodeHeader = lazy(() => import("@/components/home/code-header"));
 const LifeStyles = lazy(() => import("@/components/home/life-styles"));
 const CodingStats = lazy(() => import("@/components/home/coding-stats"));
 const AnimatedSection = lazy(() => import("@/components/animated-section"));
-// import markdownToHtml from "@/lib/markdownToHtml"; // No longer needed here
-import { cn } from "@/lib/utils";
-import markdownStyles from "@/styles/markdown-styles.module.css";
-import { LatestArticles } from "@/components/home/latest-articles"; // Keep for {false && <LatestArticles ...>}
-import { HomePageContentProps } from "@/types/about";
 
-// iconMap and mapIcons function are removed as data comes pre-transformed.
+// All icon imports for client-side mapping
+import { LuGithub, LuPencil } from "react-icons/lu";
+import { TbPhotoSquareRounded, TbBrandOpenai } from "react-icons/tb";
+import { AiOutlinePython } from "react-icons/ai";
+import {
+  TbBrandTypescript,
+  TbBrandGolang,
+  TbBrandCpp,
+  TbMarkdown,
+  TbBrandAstro,
+  TbBrandTerraform,
+  TbBrandNextjs,
+  TbBrandDocker,
+  TbBrandMysql,
+  TbBrandDjango,
+  TbBrandLaravel,
+} from "react-icons/tb";
+import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
+import {
+  SiLatex,
+  SiFastapi,
+  SiKubernetes,
+  SiPostman,
+  SiNginx,
+  SiJira,
+  SiPhp,
+  SiLumen,
+  SiConfluence,
+  SiSlack,
+  SiN8N,
+  SiGitlab,
+  SiJavascript,
+} from "react-icons/si";
+import { FaReact, FaAws, FaNode, FaCpanel } from "react-icons/fa";
+import { BiLogoFlask } from "react-icons/bi";
+import {
+  DiRedis,
+  DiLinux,
+  DiUbuntu,
+  DiMongodb,
+  DiAngularSimple,
+} from "react-icons/di";
+import { VscTerminalLinux, VscAzure, VscVscode } from "react-icons/vsc";
+import { MdOutlineSecurity, MdCloud } from "react-icons/md";
+import { GrTurbolinux } from "react-icons/gr";
+
+// Centralized icon map for client-side mapping
+const iconMap: { [key: string]: any } = {
+  LuGithub,
+  LuPencil,
+  TbPhotoSquareRounded,
+  AiOutlinePython,
+  TbBrandTypescript,
+  TbBrandGolang,
+  TbBrandCpp,
+  RiJavaLine,
+  RiJavascriptLine,
+  SiLatex,
+  TbMarkdown,
+  TbBrandAstro,
+  TbBrandTerraform,
+  FaReact,
+  SiFastapi,
+  BiLogoFlask,
+  DiRedis,
+  VscTerminalLinux,
+  FaAws,
+  TbBrandNextjs,
+  TbBrandDocker,
+  TbBrandMysql,
+  TbBrandDjango,
+  SiKubernetes,
+  SiPostman,
+  VscAzure,
+  MdOutlineSecurity,
+  MdCloud,
+  TbBrandOpenai,
+  GrTurbolinux,
+  SiNginx,
+  DiLinux,
+  DiUbuntu,
+  FaCpanel,
+  DiAngularSimple,
+  SiJavascript,
+  SiPhp,
+  TbBrandLaravel,
+  SiLumen,
+  SiConfluence,
+  SiSlack,
+  SiGitlab,
+  SiN8N,
+  VscVscode,
+  SiJira,
+  FaNode,
+  DiMongodb,
+};
+
+// Function to map icon names to imported components
+const mapIcons = (data: any): any => {
+  if (!data) return data;
+
+  if (Array.isArray(data)) {
+    return data.map((item) => mapIcons(item));
+  }
+
+  if (typeof data === "object" && data !== null) {
+    const newData: any = {};
+    for (const key in data) {
+      if (
+        key === "icon" &&
+        typeof data[key] === "string" &&
+        iconMap[data[key]]
+      ) {
+        newData[key] = React.createElement(iconMap[data[key]]);
+      } else {
+        newData[key] = mapIcons(data[key]);
+      }
+    }
+    return newData;
+  }
+
+  return data;
+};
 
 const HomePageContent: React.FC<HomePageContentProps> = memo(
   ({
     header,
-    introductionHtml, // Changed from introduction
+    introductionHtml,
     introductionHeaderText,
-    lifestyles, // Now expects pre-transformed data (icons are components)
-    techStacks, // Now expects pre-transformed data (icons are components)
+    lifestyles: rawLifestyles,
+    techStacks: rawTechStacks,
     githubUsername,
     globe,
     lifestyleHeaderText,
-    techStackHeaderText, // This prop might be deprecated in favor of techStacks.techStackHeaderText
+    techStackHeaderText,
     posts = [],
   }) => {
-    // No more useEffect or useState for content processing
-    // No more client-side mapIcons transformation
+    const [transformedLifestyles, setTransformedLifestyles] = useState<
+      TransformedLifeStyle[]
+    >([]);
+    const [transformedTechStacks, setTransformedTechStacks] =
+      useState<TransformedTechStacks>({
+        techStackHeaderText: "",
+        programmingLanguages: [],
+        frameworks: [],
+      });
+
+    useEffect(() => {
+      setTransformedLifestyles(mapIcons(rawLifestyles));
+      const mappedTechStacks = mapIcons(rawTechStacks);
+      setTransformedTechStacks({
+        programmingLanguages: mappedTechStacks.programmingLanguages,
+        frameworks: mappedTechStacks.frameworks,
+        techStackHeaderText: rawTechStacks.techStackHeaderText,
+      });
+    }, [rawLifestyles, rawTechStacks]);
 
     return (
       <article>
@@ -42,30 +188,25 @@ const HomePageContent: React.FC<HomePageContentProps> = memo(
             <CodeHeader id="introduction" text={introductionHeaderText || ""} />
             <div
               className={cn(markdownStyles["markdown"])}
-              dangerouslySetInnerHTML={{ __html: introductionHtml }} // Use introductionHtml directly
+              dangerouslySetInnerHTML={{ __html: introductionHtml }}
             />
           </AnimatedSection>
         </Suspense>
-        {false && <LatestArticles posts={posts} />} {/* Keep this line as is */}
-        {techStacks && (
+        {false && <LatestArticles posts={posts} />}
+        {transformedTechStacks.programmingLanguages.length > 0 && (
           <Suspense fallback={<div>Loading...</div>}>
             <CodingStats
-              // techStackHeaderText is now part of the techStacks object.
-              // CodingStats component will need to be updated if it's not already using techStacks.techStackHeaderText
-              // For now, we pass techStacks.techStackHeaderText if available, or the separate prop as fallback.
-              techStackHeaderText={
-                techStacks.techStackHeaderText || techStackHeaderText
-              }
-              techStacks={techStacks} // Pass the pre-transformed techStacks
+              techStackHeaderText={transformedTechStacks.techStackHeaderText}
+              techStacks={transformedTechStacks}
               githubUsername={githubUsername}
               globe={globe}
             />
           </Suspense>
         )}
-        {lifestyles && (
+        {transformedLifestyles.length > 0 && (
           <Suspense fallback={<div>Loading...</div>}>
             <LifeStyles
-              lifestyles={lifestyles} // Pass the pre-transformed lifestyles
+              lifestyles={transformedLifestyles}
               headerText={lifestyleHeaderText || ""}
             />
           </Suspense>
