@@ -8,20 +8,20 @@ A modern, responsive portfolio website built with cutting-edge web technologies 
 [![GitHub Stars](https://img.shields.io/github/stars/NC555/NC55-Portfolio?style=for-the-badge&logo=github)](https://github.com/NC555/NC555-Portfolio)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/NC555/NC555-Portfolio/LICENSE)
 
-## ✨ Features
+## Features
 
-- 🎨 Modern and sleek design
-- 📱 Fully responsive across all devices
-- 🚀 Optimized performance
-- 📝 Blog functionality
-- 🖼️ Portfolio showcase
-- 📊 Interactive components
-- 🔧 TinaCMS for easy content management
-- 🔍 SEO-friendly structure
-- 🌓 Dark/Light mode support
-- 🔄 Real-time content preview
+- Modern and sleek design
+- Fully responsive across all devices
+- Optimized performance
+- Blog functionality
+- Portfolio showcase
+- Interactive components
+- TinaCMS for easy content management
+- SEO-friendly structure
+- Dark/Light mode support
+- Real-time content preview
 
-## 🛠️ Technologies
+## Technologies
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -29,7 +29,7 @@ A modern, responsive portfolio website built with cutting-edge web technologies 
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![TinaCMS](https://img.shields.io/badge/TinaCMS-302454?style=for-the-badge&logo=tinacms&logoColor=white)
 
-## 📸 Screenshots
+## Screenshots
 
 <div>
 <h3>Sidebar Live Editing</h3>
@@ -42,7 +42,7 @@ A modern, responsive portfolio website built with cutting-edge web technologies 
 <img src="./public/demo/blog-editor.jpg" alt="Blog Editor" width="520" style="max-width:75%; margin-bottom: 25px;"/>
 </div>
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -78,7 +78,7 @@ A modern, responsive portfolio website built with cutting-edge web technologies 
 
 6. Access the admin panel at [http://localhost:3000/admin](http://localhost:3000/admin) to manage content
 
-## 🔧 Configuration
+## Configuration
 
 You can customize the portfolio by editing the configuration files in the `src/data` directory or by using the admin interface.
 
@@ -105,7 +105,7 @@ For better compatibility and ease of use, it's recommended to edit content throu
 - **Portfolio Management**: [/admin/portfolio](http://nati.nc555.online/admin/portfolio)
 - **Gallery Editor**: [/admin/gallery-editor](http://nati.nc555.online/admin/gallery-editor)
 
-## 🔄 Deployment
+## Deployment
 
 This template works seamlessly with Vercel, Netlify, and other Next.js-compatible hosting platforms.
 
@@ -113,7 +113,7 @@ This template works seamlessly with Vercel, Netlify, and other Next.js-compatibl
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNC555%2FNC555) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/NC555/NC555)
 
-## 🏆 Performance Metrics
+## Performance Metrics
 
 | Metric         | Score   |
 | -------------- | ------- |
@@ -122,18 +122,18 @@ This template works seamlessly with Vercel, Netlify, and other Next.js-compatibl
 | Best Practices | 95/100  |
 | SEO            | 100/100 |
 
-## 🤝 Credits
+## Credits
 
 This project was inspired by the following repositories:
 
 - [https://github.com/1chooo/1chooo.com](https://github.com/1chooo/1chooo.com)
 - [https://github.com/codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio)
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👨‍💻 Author
+## Author
 
 Created with ❤️ by Nati Cabti
 
@@ -143,4 +143,4 @@ Created with ❤️ by Nati Cabti
 
 If you're using this template, I'd love to see your portfolio! Please share it with me.
 
-⭐ Star this repo if you find it useful!
+Star this repo if you find it useful!
